@@ -213,3 +213,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#arquivos da IDE Php Storm
+.idea/
+.idea/workspace.xml
