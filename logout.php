@@ -12,3 +12,5 @@ unset($_SESSION['_token']);
 unset($_SESSION['cpf']);
 header('location: index.php');
 
+
+echo "amo muito tudo isso";
