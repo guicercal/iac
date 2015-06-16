@@ -38,4 +38,5 @@ if($_POST['frmPassou'] == "OK"){
 //apresenta o formulário na tela
 $tpl->Show('form_login');
 echo "oi";
+// ok oko koko
 
