@@ -70,3 +70,4 @@ else{
     print 0;
     exit;
 }
+echo "chups mai dics";
