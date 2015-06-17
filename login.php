@@ -7,7 +7,7 @@ require_once('config.php');
  * significa que o usuário já enviou suas credenciais para validação
  *
 */
-
+$tpl->Show("header");
 if($_POST['frmPassou'] == "OK"){
 
     $user = new Pessoa();
@@ -23,7 +23,6 @@ if($_POST['frmPassou'] == "OK"){
             $_SESSION['_token'] = md5($user->login.md5($user->senha));
             $_SESSION['LASTACTIVITY'] = time();
             $_SESSION['user'] = $user;
-
             //redireciona o usuário para a pagina inicial.
             header('Location: index.php');
             die();
@@ -37,3 +36,4 @@ if($_POST['frmPassou'] == "OK"){
 
 //apresenta o formulário na tela
 $tpl->Show('form_login');
+$tpl->Show('footer');

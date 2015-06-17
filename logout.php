@@ -8,10 +8,7 @@
 
 require_once('config.php');
 
-unset($_SESSION['_token']);
-unset($_SESSION['cpf']);
-header('location: index.php');
+session_destroy();
+header('location: login.php');
 
 
-echo "amo muito tudo isso";
-// teste kabuloso
