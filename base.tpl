@@ -86,9 +86,9 @@
     <center><font size="25" color="DF0000">Bem vindo a home da super inovadora urna eletronica web.</font></center>
 *=> form_login
     <form name="frmLogin" method="post" action="login.php">
-        <div class="row clearfix form-group" >
+        <div class="row clearfix" >
             <div class="col-md-12 center-block ">
-                oi
+
 
             </div>
         </div>
