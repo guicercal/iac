@@ -20,7 +20,7 @@ require_once('adodb5/adodb-active-record.inc.php');
 
 $conn = NewADOConnection('postgres9');
 $conn->Connect('localhost:5432', 'postgres', 'postgres', 'trabalhoiac');
-$conn->debug=true;
+
 
 ADOdb_Active_Record::SetDatabaseAdapter($conn);
 
@@ -74,12 +74,12 @@ function isAdmin(){
 
 
 //verifica se o usuário está logado e se seu
-if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false ){
+if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false ){
     header('Location: login.php');
     die();
 }
 else{
-    if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false){
+    if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false ){
         $_SESSION['LASTACTIVITY'] = time();
     }
 }

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 3, from LayoutIt!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="../../../Users/Guilherme/Desktop/src/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../../Users/Guilherme/Desktop/src/css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="../../../Users/Guilherme/Desktop/src/js/html5shiv.js"></script>
+    <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../Users/Guilherme/Desktop/src/img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../Users/Guilherme/Desktop/src/img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../Users/Guilherme/Desktop/src/img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../../../Users/Guilherme/Desktop/src/img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../../../Users/Guilherme/Desktop/src/img/favicon.png">
+  
+	<script type="text/javascript" src="../../../Users/Guilherme/Desktop/src/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../Users/Guilherme/Desktop/src/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-3 column">
+				<img alt="250x100" src="img\votcons.png">
+				</div>
+				<div class="col-md-7 column">
+					<br>
+						<font size = "32"><center><b>JUSTIÇA ELEITORAL</b></font></center>
+					
+				</div>
+				<div class="col-md-2 column">
+					<img alt="140x140" src="img\fedbrhue.gif">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<br>
+<form id = "cadg" action = "" method = "POST" class="form-horizontal"> 
+<fieldset>
+
+<!-- Form Name -->
+<legend>Cadastro</legend>
+<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="col-md-6 column">
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">CPF</label>
+  <div class="controls">
+    <input id="cpf" name="cpf" type="text" onKeyPress ="mascaraCPF(cadg.cpf)"  placeholder="CPF" class="input-medium">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="nome">Nome</label>
+  <div class="controls">
+    <input id="nome" name="nome" type="text" onKeyPress ="mascaraChar(cadg.nome)"  placeholder="Nome" class="input-large">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="sobrenome">Sobrenome</label>
+  <div class="controls">
+    <input id="sobrenome" name="sobrenome" type="text" placeholder="Sobrenome" class="input-large">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Rg">RG</label>
+  <div class="controls">
+    <input id="Rg" name="Rg" type="text" placeholder="RG" class="input-medium">
+    
+  </div>
+</div>
+</div>
+<div class="col-md-6 column">
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="titulo">Título</label>
+  <div class="controls">
+    <input id="titulo" name="titulo" type="text" placeholder="Título" class="input-medium">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="login">Login</label>
+  <div class="controls">
+    <input id="login" name="login" type="text" placeholder="Login" class="input-large">
+    <p class="help-block">Este login sera usado para acessar a urna</p>
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="password">Senha</label>
+  <div class="controls">
+    <input id="password" name="password" type="password" placeholder="Senha" class="input-medium" required="">
+    <p class="help-block">Esta senha sera usada para acessar a urna</p>
+  </div>
+</div>
+</div>
+<!-- Button (Double) -->
+<center><div class="control-group">
+  <label class="control-label" for="btcadastra"></label>
+  <div class="controls">
+    <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>
+    <button id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</button>
+  </div>
+</div></center>
+</div>
+</div>
+</fieldset>
+</form>
+
+<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-3 column">
+					<img alt="140x140" src="img\paisrico.jpg" />
+				</div>
+
+				<div class="col-md-6 column">
+				<br>
+				<br>
+					<center><h5> Desenvolvido por: André Silva, Daniel Druszcz, Guilherme Cercal e Vinicius Calegari.</h5>
+					<h6>Todos os direitos reservados &copy</h6></center>
+				</div>
+
+
+
+				<div class="col-md-3 column">
+					<h3>
+						Ministério da Ciência, Tecnologia e Inovação.
+					</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

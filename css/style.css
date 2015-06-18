@@ -17,7 +17,7 @@ body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-  background: #f1f2f7;
+  background: #d5d6db;
 }
 a {
   color: #3c8dbc;
@@ -1381,7 +1381,7 @@ content: '';
 .form-group.has-error label {
   color: #f56954;
 }
-.form-group.has-error .form-control {
+.form-group.has-error .form-control, .has-error {
   border-color: #f56954 !important;
   box-shadow: none;
 }
@@ -4210,7 +4210,7 @@ padding: 6px 10px;
 }
 
 .fixed-footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -4241,4 +4241,17 @@ padding: 6px 10px;
 .btn-verde{
     background-color: limegreen;
     color: white;
+}
+
+.conteudo{
+
+    padding-top: 80px;
+}
+
+.colz{
+    border: 1px solid black;
+}
+
+.form-errors-alert, .login-indisp-alert, .cpf-indisp-alert{
+    display: none;
 }
