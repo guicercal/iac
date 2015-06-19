@@ -4252,6 +4252,6 @@ padding: 6px 10px;
     border: 1px solid black;
 }
 
-.form-errors-alert, .login-indisp-alert, .cpf-indisp-alert{
+.form-errors-alert, .login-indisp-alert, .cpf-indisp-alert, .cadastro-sucesso-alert{
     display: none;
 }

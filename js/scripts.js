@@ -415,7 +415,8 @@ function validarFormulario(form){
 }
 
 
-function verificaDdisponibilidadeLogin(form){
+function verificaDisponibilidadeLogin(form){
+
 
    $.ajax({
         url: 'registro.php?verLogin=true',
@@ -423,6 +424,7 @@ function verificaDdisponibilidadeLogin(form){
         data: {'login':$(form.login).val(),'cpf':$(form.cpf).val()},
         async:false,
         success: function(data){
+
             $(login).removeClass('has-error');
             if(data == "1"){
 
@@ -481,9 +483,6 @@ function buscaEndereco(campoCep){
 
 
                 //Usamos o método fail, caso não retorne nada
-            }).fail(function(){
-                //Não retornando um valor válido, ele mostra a mensagem
-                alert('FAIO');
             });
         }
     }

@@ -19,7 +19,8 @@ require_once('adodb5/adodb-active-record.inc.php');
 
 
 $conn = NewADOConnection('postgres9');
-$conn->Connect('localhost:5432', 'postgres', 'postgres', 'trabalhoiac');
+$conn->Connect('localhost:5432', 'postgres', '7552', 'trabalhoiac');
+//$conn->debug = true;
 
 
 ADOdb_Active_Record::SetDatabaseAdapter($conn);
@@ -29,9 +30,11 @@ ADOdb_Active_Record::SetDatabaseAdapter($conn);
 $tpl = new MyTemplate('base.tpl');
 
 require_once('pessoa.php');
+require_once('Endereco.php');
 
 //define algumas variaveis globais
 GLOBAL  $conn, $user, $tpl;
+
 
 
 
