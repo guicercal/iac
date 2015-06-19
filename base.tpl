@@ -93,6 +93,13 @@
                         Efetue o Login
                     </header>
                     <div class="panel-body">
+                        <!-- alerta de sucesso ao cadastrar usuario -->
+                        <div class="alert alert-success cadastro-sucesso-alert" style="{sucesso_cadastro}">
+                            <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Parabéns!</strong> Seu cadastro foi realizado com sucesso.
+                        </div>
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
                                 <label for="login" class="col-lg-2 col-sm-2 control-label">Login</label>
@@ -150,7 +157,7 @@
                     <strong>Ops!</strong> Parece que este nome de login está indisponível, por favor escolha outro nome!
                 </div>
                 <div class="panel-body">
-                    <form id="cadg" action="registro.php" method="POST" class="form-horizontal" novalidate onsubmit="return (validarFormulario(this) && verificaDdisponibilidadeLogin(this));">
+                    <form id="cadg" action="registro.php" method="POST" class="form-horizontal" novalidate onsubmit="return( verificaDisponibilidadeLogin(this));">
                         <!-- Text input-->
                         <input type="hidden" name="frmPassou" value="OK">
                         <input type="hidden" name="loginDisponivel" id="loginDisponivel" value="true">
@@ -170,7 +177,7 @@
                             <div class="col-md-4">
                                 <label class="control-label" for="Rg">RG</label>
                                 <div class="controls m-t-10 m-b-10">
-                                    <input id="Rg" name="Rg" type="text" placeholder="RG" required class="form-control">
+                                    <input id="rg" name="rg" type="text" placeholder="RG" required class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -192,7 +199,7 @@
                             <div class="col-md-4">
                                 <label class="control-label" for="password">Senha</label>
                                 <div class="controls m-t-10 m-b-10">
-                                    <input id="password" name="password" type="password" placeholder="Senha" class="form-control" required>
+                                    <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control" required>
                                     <p class="help-block">Para acesso a urna</p>
                                 </div>
                             </div>
@@ -215,7 +222,7 @@
                             <div class="col-md-2">
                                 <label class="control-label" for="numero">Número</label>
                                 <div class="controls m-t-10 m-b-10">
-                                    <input id="numeroendereco" name="numeroendereco" type="text" placeholder="Número" class="form-control" required>
+                                    <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
 
                                 </div>
                             </div>
