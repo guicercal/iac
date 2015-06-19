@@ -126,7 +126,7 @@
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <br>
                                     <button type="submit" class="btn btn-success">Entrar</button>&nbsp;&nbsp;
-                                    <a href="registro.php"><div class="btn btn-info">Registrar-me</div></a>
+                                    <a href="cadastropessoa.php"><div class="btn btn-info">Registrar-me</div></a>
                                 </div>
                             </div>
                         </form>
@@ -164,7 +164,7 @@
                     <strong>Ops!</strong> Parece que este nome de login está indisponível, por favor escolha outro nome!
                 </div>
                 <div class="panel-body">
-                    <form id="cadg" action="registro.php" method="POST" class="form-horizontal" novalidate onsubmit="return(validarFormulario(this) && verificaDisponibilidadeLogin(this));">
+                    <form id="cadg" action="cadastropessoa.php" method="POST" class="form-horizontal" novalidate onsubmit="return(validarFormulario(this) && verificaDisponibilidadeLogin(this));">
                         <!-- Text input-->
                         <input type="hidden" name="frmPassou" value="OK">
                         <input type="hidden" name="loginDisponivel" id="loginDisponivel" value="true">

@@ -79,14 +79,14 @@ function isAdmin(){
 //verifica se o usuário está logado e se seu
 if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false
     && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
-    && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
+    && strripos($_SERVER['REQUEST_URI'], 'cadastropessoa.php') == false){
     header('Location: login.php');
     die();
 }
 else{
     if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false
         && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
-        && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
+        && strripos($_SERVER['REQUEST_URI'], 'cadastropessoa.php') == false){
         $_SESSION['LASTACTIVITY'] = time();
     }
 }
