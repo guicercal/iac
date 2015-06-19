@@ -19,7 +19,7 @@ require_once('adodb5/adodb-active-record.inc.php');
 
 
 $conn = NewADOConnection('postgres9');
-$conn->Connect('localhost:5432', 'postgres', '7552', 'trabalhoiac');
+$conn->Connect('localhost:5432', 'postgres', 'postgres', 'trabalhoiac');
 //$conn->debug = true;
 
 

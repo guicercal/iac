@@ -94,24 +94,31 @@
                     </header>
                     <div class="panel-body">
                         <!-- alerta de sucesso ao cadastrar usuario -->
-                        <div class="alert alert-success cadastro-sucesso-alert" style="{sucesso_cadastro}">
+                        <div class="alert alert-success cadastro-sucesso-alert {cadastro_sucesso}">
                             <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
                                 <i class="fa fa-times"></i>
                             </button>
                             <strong>Parabéns!</strong> Seu cadastro foi realizado com sucesso.
                         </div>
+                        <div class="alert alert-block alert-danger form-errors-alert {login_error}">
+                            <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Ops!</strong> Parece que as credenciais digitadas estão incorretas, por favor verifique!
+                        </div>
                         <form class="form-horizontal" role="form">
+                            <input type="hidden" name="frmPassou" value="OK">
                             <div class="form-group">
                                 <label for="login" class="col-lg-2 col-sm-2 control-label">Login</label>
                                 <div class="col-lg-10">
-                                    <input type="login" class="form-control" id="inputEmail1" placeholder="Nome de Usuário">
+                                    <input name="login" type="login" class="form-control" id="inputEmail1" placeholder="Nome de Usuário">
                                     <br>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Senha</label>
                                 <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="inputPassword1" placeholder="Senha">
+                                    <input name="senha" type="password" class="form-control" id="inputPassword1" placeholder="Senha">
                                 </div>
                             </div>
 
@@ -157,7 +164,7 @@
                     <strong>Ops!</strong> Parece que este nome de login está indisponível, por favor escolha outro nome!
                 </div>
                 <div class="panel-body">
-                    <form id="cadg" action="registro.php" method="POST" class="form-horizontal" novalidate onsubmit="return( verificaDisponibilidadeLogin(this));">
+                    <form id="cadg" action="registro.php" method="POST" class="form-horizontal" novalidate onsubmit="return(validarFormulario(this) && verificaDisponibilidadeLogin(this));">
                         <!-- Text input-->
                         <input type="hidden" name="frmPassou" value="OK">
                         <input type="hidden" name="loginDisponivel" id="loginDisponivel" value="true">

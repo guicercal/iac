@@ -9,4 +9,7 @@
 
 require_once('config.php');
 
+$tpl->Show('header');
+$tpl->Show('footer');
+
 

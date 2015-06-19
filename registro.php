@@ -20,7 +20,7 @@ if($_GET['verLogin'] != ""){
         $return +=2;
     }
     echo $return;
-    die();
+    exit;
 }
 
 $tpl->Show('header');
@@ -29,6 +29,7 @@ if($_POST['frmPassou'] != "OK"){
     $tpl->Show('form_registro');
 }
 else{
+    $conn->Execute('START TRANSACTION;');
     //criação endereço
     $endereco = new Endereco();
     $endereco->id_endereco = $conn->nextId('endereco_id_endereco_seq');
@@ -48,15 +49,21 @@ else{
 
         $eleitor->rg  = $_POST['rg'];
         $eleitor->login = $_POST['login'];
-        $eleitor->senha = $_POST['senha'];
+        $eleitor->senha = md5($_POST['senha']) ;
 
         $eleitor->id_endereco = $endereco->id_endereco;
         if($eleitor->Save()){
-            $tpl->set('cadastro_sucesso', 'display: block;');
+            $tpl->set('cadastro_sucesso', 'show-alerts');
             $tpl->Show('form_login');
+            $conn->Execute('COMMIT;');
 
+        }else{
+            $conn->Execute('ROLLBACK;');
+            header("location:javascript://alert('Não foi possível concluir esta operação. Por favor contate o administrador.');history.go(-1)");
         }
 
+    }else{
+        $conn->Execute('ROLLBACK;');
     }
 //-----------------------------------------------------
 

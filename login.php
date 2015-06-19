@@ -11,13 +11,13 @@ $tpl->Show("header");
 if($_POST['frmPassou'] == "OK"){
 
     $user = new Pessoa();
-    $res = $user->load("login = '" . $_POST['username'] . "' ");
+    $res = $user->load("login = '" . $_POST['login'] . "' ");
 
     //caso tenha encontrado o nome de usuário no BD.
     if($res){
 
         //caso a senha coincida com a registrada no BD.
-        if($user->senha == md5($_POST['password'])){
+        if($user->senha == md5($_POST['senha'])){
 
             //registra os dados do usuário na sessão
             $_SESSION['_token'] = md5($user->login.md5($user->senha));
@@ -30,7 +30,7 @@ if($_POST['frmPassou'] == "OK"){
     }
 
     //se chegar a este trecho de codigo então houve falha na validação
-    $tpl->set('login_error','Usuário ou Senha invalido(a)!');
+    $tpl->set('login_error','show-alerts');
 
 }
 
