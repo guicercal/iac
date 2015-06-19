@@ -29,8 +29,9 @@ ADOdb_Active_Record::SetDatabaseAdapter($conn);
 //instancia a classe de template
 $tpl = new MyTemplate('base.tpl');
 
-require_once('pessoa.php');
+require_once('Pessoa.php');
 require_once('Endereco.php');
+require_once('Partido.php');
 
 //define algumas variaveis globais
 GLOBAL  $conn, $user, $tpl;

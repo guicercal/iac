@@ -136,14 +136,14 @@
         </div>
     </form>
 
-*=> form_registro
+*=> form_cadastro_pessoa
 
     <div class="row clearfix" >
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <section class="panel">
                 <header class="panel-heading">
-                    Formulário de Registro
+                    Formulário de cadastro de pessoa
                 </header>
                 <div class="alert alert-block alert-danger form-errors-alert">
                     <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
@@ -299,6 +299,120 @@
     </div>
 
 
+    *=> form_cadastro_partido
+
+    <div class="row clearfix" >
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <section class="panel">
+                <header class="panel-heading">
+                    Formulário de cadastro de partido
+                </header>
+                <div class="alert alert-block alert-danger form-errors-alert">
+                    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
+                </div>
+
+
+                <div class="panel-body">
+                    <form id="cadpar" action="cadastropartido.php" method="POST" >
+                        <!-- Text input-->
+                        <input type="hidden" name="frmPassou" value="OK">
+
+                        <div class="row m-b-10">
+                            <div class="col-md-4">
+                                <label class="control-label" for="presidente">Presidente</label>
+                                <div class="controls m-t-10 m-b-10">
+                                    <input id="presidente" name="presidente" type="text" maxlength="11" onKeyPress ="mascaraCPF(cadpar.cpf);" formato="cpf" required placeholder="CPF" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label" for="nome">Nome</label>
+                                <div class="controls m-t-10 m-b-10">
+                                    <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label" for="numero">Número</label>
+                                <div class="controls m-t-10 m-b-10">
+                                    <input id="numero" name="numero" type="text" placeholder="Número" maxlength="6" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label" for="deferimento">Deferimento</label>
+                                <div class="controls m-t-10 m-b-10">
+                                    <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control"
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row m-b-10">
+                            <div class="col-md-2">
+                                <label class="control-label" for="estado">Estado</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <select name="estado" required id="estado" class="form-control">
+                                            <option value=""></option>
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AM">AM</option>
+                                            <option value="AP">AP</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MG">MG</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MT">MT</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="PR">PR</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RS">RS</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        <div class="col-md-4">
+                                <label class="control-label" for="sigla">Sigla</label>
+                                <div class="controls  m-t-10 m-b-10">
+                                    <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control"
+                                </div>
+                        </div>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <div>
+                                <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
+                                <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
 *=> footer
 </div>
 <div class="col-md-6 column fixed-footer">
@@ -358,4 +472,5 @@
             </section>
         </div>
     </div>
+</div>
 </form>
