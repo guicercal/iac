@@ -45,7 +45,7 @@ function userSession($user,$password){
 //verifica se há algum usuário logado
 function isLogged(){
     if(isset($_SESSION['_token']) && isset($_SESSION['LASTACTIVITY'])){
-        if((time() - $_SESSION['LASTACTIVITY']) < 60){
+        if((time() - $_SESSION['LASTACTIVITY']) < 300){
             return true;
         }
         else{
@@ -74,12 +74,16 @@ function isAdmin(){
 
 
 //verifica se o usuário está logado e se seu
-if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false ){
+if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false
+    && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
+    && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
     header('Location: login.php');
     die();
 }
 else{
-    if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false ){
+    if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false
+        && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
+        && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
         $_SESSION['LASTACTIVITY'] = time();
     }
 }

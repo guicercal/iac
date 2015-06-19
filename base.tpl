@@ -84,7 +84,7 @@
 
 *=> form_login
 
-    <form name="frmLogin" method="post" action="login.php">
+    <form name="frmLogin" method="post" action="login.php" onsubmit="return validarFormulario(this);">
         <div class="row clearfix" >
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -299,3 +299,49 @@
 </html>
 
 
+
+*=> form_login_admin
+
+<form name="frmLogin" method="post" action="loginadmin.php" onsubmit="return validarFormulario(this);">
+    <div class="row clearfix" >
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <section class="panel">
+                <header class="panel-heading">
+                    Área administrativa - Login {invalid_login_alert}
+                </header>
+                <div class="panel-body">
+                    <div class="alert alert-block alert-danger cpf-indisp-alert {invalid_login_alert}">
+                        <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Ops!</strong> Parece que as credenciais digitadas estão incorretas, por favor verifique!
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <input type="hidden" name="frmPassou" value="OK">
+                        <div class="form-group">
+                            <label for="login" class="col-lg-2 col-sm-2 control-label">Login</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="login" class="form-control" id="inputEmail1" placeholder="Nome de Usuário">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Senha</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="senha" class="form-control" id="inputPassword1" placeholder="Senha">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <br>
+                                <button type="submit" class="btn btn-success">Entrar</button>&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>

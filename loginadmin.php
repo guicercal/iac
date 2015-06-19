@@ -7,67 +7,27 @@
  */
 
 require_once('config.php');
-
+$tpl->Show('header');
 //caso o input hidden frmPassou seja diferente de ok, seignifica que ainda não foi apresentado o formulário de login
 if($_POST['frmPassou'] != "OK"){
-    $tpl->Show('form_login');
+    $tpl->Show('form_login_admin');
 }
 else{
-
-    if($_POST['username'] != _ADMIN_ACOUNT)
 
     //verifica se o login é do administrador
-    if($_POST['username'] == _ADMIN_ACOUNT && $_POST['password'] == _ADMIN_PWD){
-
+    if($_POST['login'] == _ADMIN_ACOUNT && $_POST['senha'] == _ADMIN_PWD){
         $_SESSION['_token'] = md5(_ADMIN_ACOUNT . _ADMIN_PWD);
-        print 1;
-        exit;
-
+        $_SESSION['LASTACTIVITY'] = time();
+        //redireciona o usuário para a pagina inicial.
+        header('Location: admin.php?a=1');
+        die();
     }
     else{
-        $user = new Comprador();
-        $res = $user->load("login = '" . $_POST['username'] . "' ");
-
-        if($res){
-            if($user->senha == md5($_POST['password'])){
-                $_SESSION['_token'] = md5($user->login.md5($user->senha));
-                $_SESSION['cpf'] = $user->cpf;
-                print 1;
-                exit;
-            }
-            else print 2;
-            exit;
-        }
-
-        print 0;
-        exit;
-    }
-}
-
-//verifica se o login é do administrador
-if($_POST['username'] == _ADMIN_ACOUNT && $_POST['password'] == _ADMIN_PWD){
-
-    $_SESSION['_token'] = md5(_ADMIN_ACOUNT . _ADMIN_PWD);
-    print 1;
-    exit;
-
-}
-else{
-    $user = new Comprador();
-    $res = $user->load("login = '" . $_POST['username'] . "' ");
-
-    if($res){
-        if($user->senha == md5($_POST['password'])){
-            $_SESSION['_token'] = md5($user->login.md5($user->senha));
-            $_SESSION['cpf'] = $user->cpf;
-            print 1;
-            exit;
-        }
-        else print 2;
-        exit;
+        $tpl->set('invalid_login_alert','show-alerts');
+        $tpl->Show('form_login_admin');
     }
 
-    print 0;
-    exit;
 }
-echo "chups mai dics";
+$tpl->Show('footer');
+
+

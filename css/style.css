@@ -4255,3 +4255,7 @@ padding: 6px 10px;
 .form-errors-alert, .login-indisp-alert, .cpf-indisp-alert{
     display: none;
 }
+
+.show-alerts{
+    display: block;
+}

@@ -481,9 +481,6 @@ function buscaEndereco(campoCep){
 
 
                 //Usamos o método fail, caso não retorne nada
-            }).fail(function(){
-                //Não retornando um valor válido, ele mostra a mensagem
-                alert('FAIO');
             });
         }
     }
