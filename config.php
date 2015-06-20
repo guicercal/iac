@@ -49,7 +49,7 @@ function userSession($user,$password){
 //verifica se há algum usuário logado
 function isLogged(){
     if(isset($_SESSION['_token']) && isset($_SESSION['LASTACTIVITY'])){
-        if((time() - $_SESSION['LASTACTIVITY']) < 3000){
+        if((time() - $_SESSION['LASTACTIVITY']) < 300){
             return true;
         }
         else{

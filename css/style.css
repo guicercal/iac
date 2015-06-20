@@ -4210,7 +4210,7 @@ padding: 6px 10px;
 }
 
 .fixed-footer{
-
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -4218,7 +4218,6 @@ padding: 6px 10px;
     border-top: 2px solid #eeeeee;
     box-shadow: 0 0 40px -20px #000000;
     text-align: center;
-
 }
 
 .fixed-header-default{
