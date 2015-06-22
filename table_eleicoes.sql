@@ -6,3 +6,9 @@ Create table "eleicoes"
 	"finalizada" Boolean Default FALSE,
  primary key ("id_eleicao")
 ) Without Oids;
+
+ALTER TABLE partidos
+  DROP CONSTRAINT partidos_presidente_fkey;
+
+  ALTER TABLE partidos
+   ALTER COLUMN presidente TYPE character varying(255);

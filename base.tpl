@@ -59,12 +59,12 @@
 *=> menu_principal
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <section class="panel">
+            <section class="panel panel-info">
                 <header class="panel-heading">
                     <ul class="nav nav-tabs nav-justified">
                         <li role="presentation" class="{menu_home_active}"><a href="indexadmin.php">Home</a></li>
                         <li role="presentation" class="{menu_eleitores_active}"><a href="eleitores.php">Eleitores</a></li>
-                        <li role="presentation" class="{menu_partidos_active}"><a href="partidos.php">Partidos</a></li>
+                        <li role="presentation" class="{menu_partidos_active}"><a href="cadastropartido.php">Partidos</a></li>
                     </ul>
                 </header>
                 <div class="panel-body">
@@ -517,117 +517,116 @@
     </div>
 
 
-    *=> form_cadastro_partido
-
-    <div class="row clearfix" >
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <section class="panel">
-                <header class="panel-heading">
-                    Formulário de cadastro de partido
-                </header>
-                <div class="alert alert-block alert-danger form-errors-alert">
-                    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
-                        <i class="fa fa-times"></i>
-                    </button>
-                    <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
-                </div>
+*=> form_cadastro_partido
 
 
-                <div class="panel-body">
-                    <form id="cadpar" action="cadastropartido.php" method="POST" >
-                        <!-- Text input-->
-                        <input type="hidden" name="frmPassou" value="OK">
-
-                        <div class="row m-b-10">
-                            <div class="col-md-4">
-                                <label class="control-label" for="presidente">Presidente</label>
-                                <div class="controls m-t-10 m-b-10">
-                                    <input id="presidente" name="presidente" type="text" maxlength="11" onKeyPress ="mascaraCPF(cadpar.cpf);" formato="cpf" required placeholder="CPF" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="control-label" for="nome">Nome</label>
-                                <div class="controls m-t-10 m-b-10">
-                                    <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="control-label" for="numero">Número</label>
-                                <div class="controls m-t-10 m-b-10">
-                                    <input id="numero" name="numero" type="text" placeholder="Número" maxlength="6" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="control-label" for="deferimento">Deferimento</label>
-                                <div class="controls m-t-10 m-b-10">
-                                    <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control"
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row m-b-10">
-                            <div class="col-md-2">
-                                <label class="control-label" for="estado">Estado</label>
-                                    <div class="controls m-t-10 m-b-10">
-                                        <select name="estado" required id="estado" class="form-control">
-                                            <option value=""></option>
-                                            <option value="AC">AC</option>
-                                            <option value="AL">AL</option>
-                                            <option value="AM">AM</option>
-                                            <option value="AP">AP</option>
-                                            <option value="BA">BA</option>
-                                            <option value="CE">CE</option>
-                                            <option value="DF">DF</option>
-                                            <option value="ES">ES</option>
-                                            <option value="GO">GO</option>
-                                            <option value="MA">MA</option>
-                                            <option value="MG">MG</option>
-                                            <option value="MS">MS</option>
-                                            <option value="MT">MT</option>
-                                            <option value="PA">PA</option>
-                                            <option value="PB">PB</option>
-                                            <option value="PE">PE</option>
-                                            <option value="PI">PI</option>
-                                            <option value="PR">PR</option>
-                                            <option value="RJ">RJ</option>
-                                            <option value="RN">RN</option>
-                                            <option value="RS">RS</option>
-                                            <option value="RO">RO</option>
-                                            <option value="RR">RR</option>
-                                            <option value="SC">SC</option>
-                                            <option value="SE">SE</option>
-                                            <option value="SP">SP</option>
-                                            <option value="TO">TO</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                        <div class="col-md-4">
-                                <label class="control-label" for="sigla">Sigla</label>
-                                <div class="controls  m-t-10 m-b-10">
-                                    <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control"
-                                </div>
-                        </div>
-                        </div>
-
-
-
-                        <div class="col-md-4">
-                            <div>
-                                <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
-                                <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
-                            </div>
-                        </div>
-
-
-
-                    </form>
-                </div>
-            </section>
+    <section class="panel">
+        <fieldset>
+            <legend>
+                <ol class="breadcrumb">
+                    <li><a href="cadastropartido.php?a=1">Partidos</a></li>
+                    <li class="active">Cadastrar Novo Partido</li>
+                </ol>
+            </legend>
+        </fieldset>
+        <div class="alert alert-block alert-danger form-errors-alert">
+            <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                <i class="fa fa-times"></i>
+            </button>
+            <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
         </div>
-    </div>
+        <div class="panel-body">
+            <form id="cadpar" action="cadastropartido.php" method="POST" >
+                <!-- Text input-->
+                <input type="hidden" name="frmPassou" value="OK">
+
+                <div class="row m-b-10">
+                    <div class="col-md-4">
+                        <label class="control-label" for="presidente">Presidente</label>
+                        <div class="controls m-t-10 m-b-10">
+                            <input id="presidente" name="presidente" type="text" maxlength="11" onKeyPress ="mascaraCPF(cadpar.cpf);" formato="cpf" required placeholder="CPF" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="nome">Nome</label>
+                        <div class="controls m-t-10 m-b-10">
+                            <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="numero">Número</label>
+                        <div class="controls m-t-10 m-b-10">
+                            <input id="numero" name="numero" type="text" placeholder="Número" maxlength="6" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="deferimento">Deferimento</label>
+                        <div class="controls m-t-10 m-b-10">
+                            <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control"
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row m-b-10">
+                    <div class="col-md-2">
+                        <label class="control-label" for="estado">Estado</label>
+                            <div class="controls m-t-10 m-b-10">
+                                <select name="estado" required id="estado" class="form-control">
+                                    <option value=""></option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                <div class="col-md-4">
+                        <label class="control-label" for="sigla">Sigla</label>
+                        <div class="controls  m-t-10 m-b-10">
+                            <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control"
+                        </div>
+                </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div>
+                        <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
+                        <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </section>
 
 
 
@@ -698,9 +697,13 @@
 
 
         <section class="panel">
-            <header class="panel-heading">
-                Configurações da Eleição
-            </header>
+            <fieldset>
+                <legend>
+                    <ol class="breadcrumb">
+                        <li class="active">Configurações da Eleição</li>
+                    </ol>
+                </legend>
+
             <div class="alert alert-block alert-danger form-errors-alert">
                 <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
                     <i class="fa fa-times"></i>
@@ -786,6 +789,7 @@
                     </div>
                 </form>
             </div>
+            </fieldset>
         </section>
 
 
@@ -842,8 +846,6 @@
                     </form>
                 </div>
             </div>
-
-
         </div>
 
 
@@ -1007,3 +1009,66 @@
         </div>
     </fieldset>
 </section>
+
+*=> partidos_table_head
+
+
+<table class="table table-hover table-bordered">
+    <thead>
+    <th class="text-center">Sigla</th>
+    <th class="text-center">Nome</th>
+    <th class="text-center">Codigo</th>
+    <th class="text-center">Ações</th>
+
+    </thead>
+*=> partidos_table_linha
+    <tr>
+        <td class="text-center">{sigla}</td>
+        <td>{nome}</td>
+        <td class="text-center">
+            {defetimento}
+        </td>
+        <td class="text-center">
+            <div class="center-block hidden-phone">
+                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-user"></i></button></a>
+                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-pencil"></i></button></a>
+                <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o eleitor {nome} ?');"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
+            </div>
+        </td>
+    </tr>
+
+*=> partidos_table_linha_eof
+    <tr>
+        <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
+
+    </tr>
+
+*=> partidos_table_foot
+</table>
+<div class="box-tools m-b-15">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="cadastropartido.php?a=2" title="Novo Partido">
+            <div class="btn btn-info">
+                <span class="glyphicon glyphicon-plus-sign"> Novo</span>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            {paginacao}
+        </div>
+        <div class="col-md-4">
+            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
+                <div class="input-group">
+
+                    <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
