@@ -34,6 +34,7 @@ require_once('Endereco.php');
 require_once('cargos.php');
 require_once('Eleicoes.php');
 require_once('Partido.php');
+require_once('Candidato.php');
 
 
 //define algumas variaveis globais

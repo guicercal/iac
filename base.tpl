@@ -78,24 +78,10 @@
 <div class="row clearfix" >
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <section class="panel">
+        <section class="panel " >
             <header class="panel-heading">
                 Formulário de Registro de candidato
             </header>
-            <form name="buscaCandidato" method="post" action="cadastroCandidato.php" ">
-            <div class="row">
-            <div class="col-md-8">
-                <div>
-                <label class="control-label" for="textinput"> Faça sua pesquisa</label>
-                </div>
-                <div class="col-md-10">
-                <input id="buscaCandidato" name="cpf" type="text" maxlength="14" onKeyPress ="mascaraCPF(cadg.cpf);" formato="cpf" required placeholder="Insira o CPF do seu candidato" class="form-control">
-                <input type="submit" class="btn btn-default"  value="ok">
-                </div>
-            </div>
-            </div>
-            </form>
-
             <div class="alert alert-block alert-danger form-errors-alert">
                 <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
                     <i class="fa fa-times"></i>
@@ -112,18 +98,32 @@
                 <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
                     <i class="fa fa-times"></i>
                 </button>
-                <strong>Ops!</strong> Parece que este nome de login está indisponível, por favor escolha outro nome!
+                <strong>Ops!</strong> Parece que este CPF de candidato está indisponível, por favor escolha outro nome ou realize o cadastro do candidato!
             </div>
             <div class="panel-body">
-                <form id="cadg" action="cadastropessoa.php" method="POST" class="form-horizontal" novalidate onsubmit="return(validarFormulario(this) && verificaDisponibilidadeLogin(this));">
+                <div id="alertaExisteEleitor" class="alert alert-info cadastro-sucesso-alert {cadastro_sucesso}">
+                    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                        <i class="fa fa-times"></i>
+                    </button>
+
+                    <strong>Hey!</strong> Seu dados de eleitor serão utilizados.
+                </div>
+                <form id="cadg" action="cadastroCandidato.php" method="POST" class="form-horizontal" novalidate onsubmit="return validarFormulario(this);">
                     <!-- Text input-->
                     <input type="hidden" name="frmPassou" value="OK">
-                    <input type="hidden" name="loginDisponivel" id="loginDisponivel" value="true">
+                    <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
+
+                    <fieldset>
+                        <legend class="text">
+                            <h5>
+                                Dados pessoais
+                            </h5>
+                        </legend>
                     <div class="row m-b-10">
                         <div class="col-md-4">
                             <label class="control-label" for="textinput">CPF</label>
                             <div class="controls m-t-10 m-b-10">
-                                <input id="cpf" name="cpf" type="text" maxlength="14" onKeyPress ="mascaraCPF(cadg.cpf);" formato="cpf" required placeholder="CPF" class="form-control">
+                                <input id="cpf" name="cpf" type="text" maxlength="14" onKeyPress ="mascaraCPF(cadg.cpf);" formato="cpf" required placeholder="CPF" class="form-control" onkeyup="verificaCandidato(this);">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -147,44 +147,43 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <label class="control-label" for="login">Login</label>
-                            <div class="controls  m-t-10 m-b-10">
-                                <input id="login" name="login" type="text" placeholder="Login" required class="form-control">
-                                <p class="help-block">Para acesso a urna</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="control-label" for="password">Senha</label>
-                            <div class="controls m-t-10 m-b-10">
-                                <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control" required>
-                                <p class="help-block">Para acesso a urna</p>
-                            </div>
-                        </div>
+
+
                     </div>
-                    <div class="row m-b-10">
-                        <div class="col-md-4">
-                            <label class="control-label" for="cep">CEP</label>
-                            <div class="controls  m-t-10 m-b-10">
-                                <input id="cep" name="cep" type="text" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
+                    </fieldset>
 
+                    <fieldset>
+                        <legend class="text">
+                            <h5>
+                            Dados do endereço
+                            </h5>
+                        </legend>
+                        <div class="row m-b-10">
+                            <div class="col-md-4">
+                                <label class="control-label" for="cep">CEP</label>
+                                <div class="controls  m-t-10 m-b-10">
+                                    <input id="cep" name="cep" type="text" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label" for="logradouro">Logradouro</label>
+                                <div class="controls  m-t-10 m-b-10">
+                                    <input id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label" for="numero">Número</label>
+                                <div class="controls m-t-10 m-b-10">
+                                    <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
+
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label class="control-label" for="logradouro">Logradouro</label>
-                            <div class="controls  m-t-10 m-b-10">
-                                <input id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required class="form-control">
 
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <label class="control-label" for="numero">Número</label>
-                            <div class="controls m-t-10 m-b-10">
-                                <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
 
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row m-b-10">
                         <div class="col-md-5">
                             <label class="control-label" for="bairro">Bairro</label>
@@ -204,7 +203,7 @@
                             <label class="control-label" for="estado">Estado</label>
                             <div class="controls m-t-10 m-b-10">
                                 <select name="estado" required id="estado" class="form-control">
-                                    <option value=""></option>
+                                    <option value="">Estado</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
                                     <option value="AM">AM</option>
@@ -236,7 +235,59 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="text">
+                            <h5>
+                                Dados do candidato
+                            </h5>
+                        </legend>
+                            <div class="row m-b-10">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="estado">Partido</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <select name="partido" required id="partido" class="form-control">
+                                            <option value="">Partido</option>
+                                            </select>
+                                     </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="estado">Coligação</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <select  name="coligacao" required id="coligacao" class="form-control">
+                                            <option value="">Coligação</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="numeroCandidato">Número do candidato</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        <div class="row m-b-10">
+                            <div class="col-md-8">
+                                <label class="control-label" for="nomeFantasia">Nome para a urna</label>
+                                <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
+                            </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cargo">Cargo</label>
+                            <div class="controls">
+                                <select  name="cargo" required id="cargo" class="form-control">
+                                    <option value="">Cargo</option>
+                                    <option value="1">Vereador</option>
+                                    <option value="2">Deputado Estadual</option>
+                                    <option value="3">Prefeito</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </fieldset>
+                    <div class="row m-b-10">
                         <div class="col-md-12">
                             <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                             <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
@@ -311,7 +362,7 @@
         <div class="col-md-8">
             <section class="panel">
                 <header class="panel-heading">
-                    Formulário de cadastro de pessoa
+                    Formulário de cadastro de eleitor
                 </header>
                 <div class="alert alert-block alert-danger form-errors-alert">
                     <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
@@ -586,13 +637,10 @@
     </div>
 </div>
 <div class="col-md-6 column fixed-footer">
-
     <h5> Desenvolvido por: André Silva, Daniel Druszcz, Guilherme Cercal e Vinicius Calegari.</h5>
-        <h6>Todos os direitos reservados &copy</h6>
+    <h6>Todos os direitos reservados &copy</h6>
     <img src="img/logo_governo.png" height="50px">
 </div>
-
-
 </body>
 </html>
 

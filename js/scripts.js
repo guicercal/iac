@@ -1,36 +1,8 @@
 $(function(){
-    $("#emailatendente").blur(function(event) {
+
+    $('.conteudo').css('minHeight',$(window).height()-$('.fixed-footer').height());
 
 
-
-        var email = ca.emailatendente.value;
-
-        var x ;
-        var dataEmail = "email="+email;
-
-
-
-        $.ajax({
-
-            url: 'testeajax.jsp',
-            type: 'POST',
-            data: dataEmail,
-            success: function(data){
-
-                if (data.length < 14){
-
-                    return true;
-                }
-                if (data.length > 14){
-                    alert ("Email j� existente, escolha outro!")
-                    ca.emailatendente.focus();
-                    return false;
-
-                }
-            }
-        });
-
-    });
 });
 
 function validarCadPar(){
@@ -449,6 +421,110 @@ function verificaDisponibilidadeLogin(form){
    });
 
    return $('#loginDisponivel').val() != 'false';
+}
+
+function verificaCandidato(cpf){
+
+
+    if($(cpf).val().length == 14){
+        $.ajax({
+            url:'cadastroCandidato.php?verCandidato=true',
+            type: 'POST',
+            data: {'cpf':$(cpf).val()},
+            success: function(data){
+
+                var res = eval('('+data+')');
+
+                console.log(res);
+                if(res.cod== 2 || res.cod == 3) {
+                    $('#alertaExisteEleitor').fadeIn(1000);
+                    $('#nome').val(res.pessoa.nome);
+                    $('#rg').val(res.pessoa.rg);
+                    $('#titulo').val(res.pessoa.titulo);
+                    $('#cep').val(res.pessoa.endereco.cep);
+                    $('#logradouro').val(res.pessoa.endereco.logradouro);
+                    $('#numero').val(res.pessoa.endereco.numero);
+                    $('#bairro').val(res.pessoa.endereco.bairro);
+                    $('#cidade').val(res.pessoa.endereco.cidade);
+                    $("#estado option[value=" + res.pessoa.endereco.estado + "]").attr('selected', 'selected');
+
+
+                    $('#nome').attr('disabled', 'disabled');
+                    $('#rg').attr('disabled', 'disabled');
+                    $('#titulo').attr('disabled', 'disabled');
+                    $('#cep').attr('disabled', 'disabled');
+                    $('#logradouro').attr('disabled', 'disabled');
+                    $('#numero').attr('disabled', 'disabled');
+                    $('#bairro').attr('disabled', 'disabled');
+                    $('#cidade').attr('disabled', 'disabled');
+                    $('#estado').attr('disabled', 'disabled');
+                }else{
+                    $('#nome').removeAttr('disabled').val('');
+                    $('#rg').attr('disabled','');
+                    $('#titulo').attr('disabled','');
+                    $('#cep').attr('disabled','');
+                    $('#logradouro').attr('disabled','');
+                    $('#numero').attr('disabled','');
+                    $('#bairro').attr('disabled','');
+                    $('#cidade').attr('disabled','');
+                    $('#estado').attr('disabled','');
+                }
+
+
+                /*$(cpf).removeClass('has-error');
+                if(data =='1' ){
+                    $(cpf.value).addClass('has_erro');
+                    $('#cpfDisponivel').val('false');
+                    $('.login-indisp-alert').fadeIn(400);
+                }
+                if(data == '2')*/
+
+
+            }
+        });
+    }else{
+        $('#nome').removeAttr('disabled').val('');
+        $('#rg').attr('disabled','');
+        $('#titulo').attr('disabled','');
+        $('#cep').attr('disabled','');
+        $('#logradouro').attr('disabled','');
+        $('#numero').attr('disabled','');
+        $('#bairro').attr('disabled','');
+        $('#cidade').attr('disabled','');
+        $('#estado').attr('disabled','');
+    }
+
+    /*$.ajax({
+        url: 'cadastropessoa.php?verLogin=true',
+        type: 'POST',
+        data: {'login':$(form.login).val(),'cpf':$(form.cpf).val()},
+        async:false,
+        success: function(data){
+
+            $(login).removeClass('has-error');
+            if(data == "1"){
+
+                $(form.login).addClass('has-error');
+                $('#loginDisponivel').val('false');
+                $('.login-indisp-alert').fadeIn(400);
+            }
+            if(data == "2"){
+                $(form.cpf).addClass('has-error');
+                $('#loginDisponivel').val('false');
+                $('.cpf-indisp-alert').fadeIn(400);
+            }
+            if(data == "3"){
+                $(form.cpf).addClass('has-error');
+                $(form.login).addClass('has-error');
+                $('#loginDisponivel').val('false');
+                $('.cpf-indisp-alert').fadeIn(400);
+                $('.login-indisp-alert').fadeIn(400);
+            }
+
+        }
+    });
+
+    return $('#loginDisponivel').val() != 'false';*/
 }
 
 function buscaEndereco(campoCep){
