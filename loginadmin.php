@@ -7,6 +7,7 @@
  */
 
 require_once('config.php');
+$tpl->set('btn_logout','hidden');
 $tpl->Show('header');
 //caso o input hidden frmPassou seja diferente de ok, seignifica que ainda não foi apresentado o formulário de login
 if($_POST['frmPassou'] != "OK"){
@@ -19,7 +20,7 @@ else{
         $_SESSION['_token'] = md5(_ADMIN_ACOUNT . _ADMIN_PWD);
         $_SESSION['LASTACTIVITY'] = time();
         //redireciona o usuário para a pagina inicial.
-        header('Location: admin.php?a=1');
+        header('Location: indexadmin.php');
         die();
     }
     else{

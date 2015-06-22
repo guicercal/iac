@@ -7,6 +7,7 @@ require_once('config.php');
  * significa que o usuário já enviou suas credenciais para validação
  *
 */
+$tpl->set('btn_logout','hidden');
 $tpl->Show("header");
 if($_POST['frmPassou'] == "OK"){
 

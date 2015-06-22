@@ -4259,3 +4259,9 @@ padding: 6px 10px;
 .show-alerts{
     display: block;
 }
+
+.btn-logout{
+    position: absolute;
+    right: 10%;
+    top: 20px;
+}

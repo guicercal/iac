@@ -8,7 +8,9 @@
 
 require_once('config.php');
 
-session_destroy();
+$_SESSION['_token']="";
+$_SESSION['user']=null;
+//session_destroy();
 header('location: login.php');
 
 
