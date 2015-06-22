@@ -29,10 +29,12 @@ ADOdb_Active_Record::SetDatabaseAdapter($conn);
 //instancia a classe de template
 $tpl = new MyTemplate('base.tpl');
 
-require_once('pessoa.php');
+require_once('Pessoa.php');
 require_once('Endereco.php');
 require_once('cargos.php');
 require_once('Eleicoes.php');
+require_once('Partido.php');
+
 
 //define algumas variaveis globais
 GLOBAL  $conn, $user, $tpl;
@@ -166,7 +168,7 @@ if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false
 else{
     if(strripos($_SERVER['REQUEST_URI'], 'login.php') == false
         && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
-        && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
+        && strripos($_SERVER['REQUEST_URI'], 'cadastropessoa.php') == false){
         $_SESSION['LASTACTIVITY'] = time();
     }
 }

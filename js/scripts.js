@@ -419,7 +419,7 @@ function verificaDisponibilidadeLogin(form){
 
 
    $.ajax({
-        url: 'registro.php?verLogin=true',
+        url: 'cadastropessoa.php?verLogin=true',
         type: 'POST',
         data: {'login':$(form.login).val(),'cpf':$(form.cpf).val()},
         async:false,
