@@ -151,7 +151,7 @@
 
                     </div>
                     </fieldset>
-
+                        <br>
                     <fieldset>
                         <legend class="text">
                             <h5>
@@ -185,14 +185,14 @@
 
 
                     <div class="row m-b-10">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label class="control-label" for="bairro">Bairro</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <label class="control-label" for="cidade">Cidade</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -236,7 +236,7 @@
                         </div>
                     </div>
                     </fieldset>
-
+                    <br>
                     <fieldset>
                         <legend class="text">
                             <h5>
