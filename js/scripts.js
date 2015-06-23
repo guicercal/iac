@@ -460,14 +460,13 @@ function verificaCandidato(cpf){
                     $('#estado').attr('disabled', 'disabled');
                 }else{
                     $('#nome').removeAttr('disabled').val('');
-                    $('#rg').attr('disabled','');
-                    $('#titulo').attr('disabled','');
-                    $('#cep').attr('disabled','');
-                    $('#logradouro').attr('disabled','');
-                    $('#numero').attr('disabled','');
-                    $('#bairro').attr('disabled','');
-                    $('#cidade').attr('disabled','');
-                    $('#estado').attr('disabled','');
+                    $('#titulo').removeAttr('disabled').val('');
+                    $('#cep').removeAttr('disabled').val('');
+                    $('#logradouro').removeAttr('disabled').val('');
+                    $('#numero').removeAttr('disabled').val('');
+                    $('#bairro').removeAttr('disabled').val('');
+                    $('#cidade').removeAttr('disabled').val('');
+                    $('#estado').removeAttr('disabled').val('');
                 }
 
 
@@ -484,14 +483,14 @@ function verificaCandidato(cpf){
         });
     }else{
         $('#nome').removeAttr('disabled').val('');
-        $('#rg').attr('disabled','');
-        $('#titulo').attr('disabled','');
-        $('#cep').attr('disabled','');
-        $('#logradouro').attr('disabled','');
-        $('#numero').attr('disabled','');
-        $('#bairro').attr('disabled','');
-        $('#cidade').attr('disabled','');
-        $('#estado').attr('disabled','');
+        $('#rg').removeAttr('disabled').val('');
+        $('#titulo').removeAttr('disabled').val('');
+        $('#cep').removeAttr('disabled').val('');
+        $('#logradouro').removeAttr('disabled').val('');
+        $('#numero').removeAttr('disabled').val('');
+        $('#bairro').removeAttr('disabled').val('');
+        $('#cidade').removeAttr('disabled').val('');
+        $('#estado').removeAttr('disabled').val('');
     }
 
     /*$.ajax({

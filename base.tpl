@@ -454,14 +454,14 @@
                         </div>
                     </div>
                     <div class="row m-b-10">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label class="control-label" for="bairro">Bairro</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <label class="control-label" for="cidade">Cidade</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -504,7 +504,63 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="row">
+=======
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend class="text">
+                            <h5>
+                                Dados do candidato
+                            </h5>
+                        </legend>
+                            <div class="row m-b-10">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="estado">Partido</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <select name="partido" required id="partido" class="form-control">
+                                            <option value="">Partido</option>
+                                            </select>
+                                     </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="estado">Coligação</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <select  name="coligacao" required id="coligacao" class="form-control">
+                                            <option value="">Coligação</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label" for="numeroCandidato">Número do candidato</label>
+                                    <div class="controls m-t-10 m-b-10">
+                                        <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        <div class="row m-b-10">
+                            <div class="col-md-8">
+                                <label class="control-label" for="nomeFantasia">Nome para a urna</label>
+                                <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
+                            </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cargo">Cargo</label>
+                            <div class="controls">
+                                <select  name="cargo" required id="cargo" class="form-control">
+                                    <option value="">Cargo</option>
+                                    <option value="1">Vereador</option>
+                                    <option value="2">Deputado Estadual</option>
+                                    <option value="3">Prefeito</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </fieldset>
+                    <div class="row m-b-10">
+>>>>>>> 2223eaef7df440a0e18fdaadf3ebfc8df0ef71e7
                         <div class="col-md-12">
                             <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                             <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
