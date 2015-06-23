@@ -13,7 +13,7 @@ $tpl->set('menu_partidos_active','active');
 $tpl->Show('menu_principal');
 
 
-if($_GET['a'] == "1"){
+if($_GET['a'] == "1" || $_GET['a'] == ''){
     $where = "";
     $where2 = "";
     $page = "";
@@ -56,6 +56,7 @@ if($_GET['a'] == "1"){
 }
 
 if($_GET['a'] == "2"){
+
     if($_POST['frmPassou'] != "OK"){
         $tpl->Show('form_cadastro_partido');
     }
@@ -65,11 +66,13 @@ if($_GET['a'] == "2"){
         $partido = new Partido();
         $partido->id_partido = $conn->nextId('partidos_id_partido_seq');
         $partido->nome = $_POST['nome'];
+        $partido->presidente = $_POST['presidente'];
         $partido->numero = $_POST['numero'];
         $partido->estado = $_POST['estado'];
         $partido->sigla = $_POST['sigla'];
         $partido->deferimento = $_POST['deferimento'];
         $partido->id_endereco = $endereco->id_endereco;
+        var_dump($partido);
         if($partido->Save()){
             $tpl->set('cadastro_sucesso', 'show-alerts');
             $tpl->Show('form_login');
@@ -77,7 +80,7 @@ if($_GET['a'] == "2"){
 
         }else{
             $conn->Execute('ROLLBACK;');
-            header("location:javascript://alert('Não foi possível concluir esta operação. Por favor contate o administrador.');history.go(-1)");
+            //header("location:javascript://alert('Não foi possível concluir esta operação. Por favor contate o administrador.');history.go(-1)");
         }
 
     }

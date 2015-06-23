@@ -10,7 +10,8 @@ require_once('config.php');
 
 $_SESSION['_token']="";
 $_SESSION['user']=null;
-//session_destroy();
+unset($_SESSION);
+session_destroy();
 header('location: login.php');
 
 
