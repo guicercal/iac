@@ -7,6 +7,8 @@
  */
 
 require_once('config.php');
+
+
 if($_GET['verCandidato'] != ''){
     $retorno = array();
     $candidato = new Candidato();

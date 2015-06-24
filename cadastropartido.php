@@ -102,7 +102,7 @@ if($_GET['a'] == "2"){
 
 //editar cadastro do partido
 if($_GET['a'] == '3'){
-    
+
 }
 
 $tpl->Show('footer');
