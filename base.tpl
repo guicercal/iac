@@ -76,8 +76,9 @@
 *=> form_candidato
 
 <div class="row clearfix" >
-<div class="col-md-12">
-
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<section class="panel " >
 <header class="panel-heading">
     Formulário de Registro de candidato
 </header>
@@ -295,7 +296,7 @@
 
     </form>
 </div>
-
+</section>
 </div>
 </div>
 
@@ -453,14 +454,14 @@
                         </div>
                     </div>
                     <div class="row m-b-10">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <label class="control-label" for="bairro">Bairro</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <label class="control-label" for="cidade">Cidade</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -503,62 +504,7 @@
                             </div>
                         </div>
                     </div>
-                   </fieldset>
-
                     <div class="row">
-
-                    <br>
-                    <fieldset>
-                        <legend class="text">
-                            <h5>
-                                Dados do candidato
-                            </h5>
-                        </legend>
-                            <div class="row m-b-10">
-                                <div class="col-md-4">
-                                    <label class="control-label" for="estado">Partido</label>
-                                    <div class="controls m-t-10 m-b-10">
-                                        <select name="partido" required id="partido" class="form-control">
-                                            <option value="">Partido</option>
-                                            </select>
-                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="estado">Coligação</label>
-                                    <div class="controls m-t-10 m-b-10">
-                                        <select  name="coligacao" required id="coligacao" class="form-control">
-                                            <option value="">Coligação</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="numeroCandidato">Número do candidato</label>
-                                    <div class="controls m-t-10 m-b-10">
-                                        <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        <div class="row m-b-10">
-                            <div class="col-md-8">
-                                <label class="control-label" for="nomeFantasia">Nome para a urna</label>
-                                <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
-                            </div>
-                        <div class="col-md-4">
-                            <label class="control-label" for="cargo">Cargo</label>
-                            <div class="controls">
-                                <select  name="cargo" required id="cargo" class="form-control">
-                                    <option value="">Cargo</option>
-                                    <option value="1">Vereador</option>
-                                    <option value="2">Deputado Estadual</option>
-                                    <option value="3">Prefeito</option>
-                                </select>
-                            </div>
-                        </div>
-                        </div>
-                    </fieldset>
-                    <div class="row m-b-10">
                         <div class="col-md-12">
                             <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                             <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
@@ -882,12 +828,12 @@
 *=> eleitores_table_head
 <table class="table table-hover table-bordered">
     <thead>
-        <th class="text-center">CPF</th>
-        <th class="text-center">Nome</th>
-        <th class="text-center">Votou?</th>
-        <th class="text-center">Ações</th>
+    <th class="text-center">CPF</th>
+    <th class="text-center">Nome</th>
+    <th class="text-center">Votou?</th>
+    <th class="text-center">Ações</th>
     </thead>
-*=> eleitores_table_linha
+    *=> eleitores_table_linha
     <tr>
         <td class="text-center">{cpf}</td>
         <td>{nome}</td>
@@ -902,13 +848,13 @@
         </td>
     </tr>
 
-*=> eleitores_table_linha_eof
+    *=> eleitores_table_linha_eof
     <tr>
         <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
 
     </tr>
 
-*=> eleitores_table_foot
+    *=> eleitores_table_foot
 </table>
 <div class="box-tools m-b-15">
     <div class="row">
@@ -1123,7 +1069,7 @@
 
     </tr>
 
-    *=> partidos_table_foot
+*=> partidos_table_foot
 </table>
 <div class="box-tools m-b-15">
     <div class="row">
