@@ -17,7 +17,7 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
     $where = "";
     $where2 = "";
     $page = "";
-    if($_GET['page'] != ""){
+    if($_GET['page'] != "" ){
         $page = "OFFSET " . ($_GET['page']-1) * 10;
     }
 
@@ -41,9 +41,10 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
 
         $tpl->set('nome',$res->fields('nome'));
         $tpl->set('sigla',$res->fields('sigla'));
+        $tpl->set('numero',$res->fields('numero'));
 
-        $tpl->set('link_editar','cadastro.php?a=3&id='.$res->fields('id_partido'));
-        $tpl->set('link_excluir','cadastro.php?a=4&id='.$res->fields('id_partido'));
+        $tpl->set('link_editar','cadastropartido.php?a=3&id='.$res->fields('id_partido'));
+        $tpl->set('link_excluir','cadastropartido.php?a=4&id='.$res->fields('id_partido'));
         $tpl->Show('partidos_table_linha');
         $res->MoveNext();
     }
@@ -51,7 +52,8 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
     $current = $_GET['page'] != "" ? $_GET['page'] : 0;
     $filtro = $_GET['filtro'] !="" ? '&filtro'.$_GET['filtro'] : "";
 
-    $tpl->set('paginacao',paginacao($res->PO_RecordCount('partido',$where2),$current,'cadastropartido.php',$filtro));
+    $res = $conn->Execute("select * from partidos $where2");
+    $tpl->set('paginacao',paginacao($res->PO_RecordCount('partidos',$where2),$current,'cadastropartido.php',$filtro));
     $tpl->Show('partidos_table_foot');
 }
 
@@ -63,19 +65,31 @@ if($_GET['a'] == "2"){
     else {
         $conn->Execute('START TRANSACTION;');
         //criação partido
+        $endereco = new Endereco();
+        $endereco->id_endereco = $conn->nextId('endereco_id_endereco_seq');
+        $endereco->cep = str_replace('-', '', $_POST['cep']);
+        $endereco->logradouro = $_POST['logradouro'];
+        $endereco->numero = $_POST['numero'];
+        $endereco->bairro = $_POST['bairro'];
+        $endereco->cidade = $_POST['cidade'];
+        $endereco->estado = $_POST['estado'];
+
+        if($endereco->Save()){
+
         $partido = new Partido();
         $partido->id_partido = $conn->nextId('partidos_id_partido_seq');
         $partido->nome = $_POST['nome'];
         $partido->presidente = $_POST['presidente'];
-        $partido->numero = $_POST['numero'];
-        $partido->estado = $_POST['estado'];
+        $partido->numero = $_POST['numeroPartido'];
+        $partido->numeroPartido = $_POST['numeroPartido'];
         $partido->sigla = $_POST['sigla'];
         $partido->deferimento = $_POST['deferimento'];
         $partido->id_endereco = $endereco->id_endereco;
-        var_dump($partido);
+        }
+
         if($partido->Save()){
             $tpl->set('cadastro_sucesso', 'show-alerts');
-            $tpl->Show('form_login');
+            $tpl->Show('form_cadastro_partido');
             $conn->Execute('COMMIT;');
 
         }else{
@@ -86,6 +100,9 @@ if($_GET['a'] == "2"){
     }
 }
 
-
+//editar cadastro do partido
+if($_GET['a'] == '3'){
+    
+}
 
 $tpl->Show('footer');

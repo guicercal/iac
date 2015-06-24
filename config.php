@@ -104,14 +104,14 @@ function mask($val, $mask)
 
 function paginacao($itens,$current,$root_link,$query){
     $html = "";
-
-    if($itens > 10){
+    var_dump($itens);
+    if($itens >= 10){
         $pages = (int)($itens/10);
         $html .= "<ul class=\"pagination pagination-sm no-margin pull-right\">
                      <li><a href=\"$root_link?$query\">&laquo;</a></li>";
 
 
-        if($pages > 3){
+        if($pages >= 3){
             if($current >= 2){
                 if($current <= ($pages-1)){
                     $html .= "<li><a href=\"$root_link?page=".($current-1)."$query\">".($current-1)."</a></li>";
@@ -134,10 +134,10 @@ function paginacao($itens,$current,$root_link,$query){
         else{
             $html .= "<li><a href=\"".$root_link."?".$query."\">1</a></li>";
             $html .= "<li><a href=\"$root_link?page=2$query\">2</a></li>";
-            $html .= "<li><a href=\"$root_link?page=3$query\">3</a></li>";
+            $html .= "<li><a href=\"$root_link?page=".($pages+1)."$query\">3</a></li>";
         }
 
-        $html .= "<li><a href=\"$root_link?page=".$pages.$query."\">&raquo;</a></li></ul>";
+        $html .= "<li><a href=\"$root_link?page=".($pages+1).$query."\">&raquo;</a></li></ul>";
 
     }
 
@@ -155,7 +155,7 @@ function onlyAdmin(){
 //verifica se o usuário está logado e se seu
 if(!isLogged() && strripos($_SERVER['REQUEST_URI'], 'login.php') == false
     && strripos($_SERVER['REQUEST_URI'], 'loginadmin.php') == false
-    && strripos($_SERVER['REQUEST_URI'], 'registro.php') == false){
+    && strripos($_SERVER['REQUEST_URI'], 'cadastropessoa.php') == false){
 
     if(isAdmin()){
         header('Location: loginadmin.php');

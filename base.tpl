@@ -76,9 +76,8 @@
 *=> form_candidato
 
 <div class="row clearfix" >
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<section class="panel " >
+<div class="col-md-12">
+
 <header class="panel-heading">
     Formulário de Registro de candidato
 </header>
@@ -158,6 +157,7 @@
                     Dados do endereço
                 </h5>
             </legend>
+
             <div class="row m-b-10">
                 <div class="col-md-4">
                     <label class="control-label" for="cep">CEP</label>
@@ -287,6 +287,7 @@
                 </div>
             </div>
         </fieldset>
+        <br>
         <div class="row m-b-10">
             <div class="col-md-12">
                 <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
@@ -296,7 +297,7 @@
 
     </form>
 </div>
-</section>
+
 </div>
 </div>
 
@@ -556,7 +557,7 @@
                 <div class="col-md-4">
                     <label class="control-label" for="numero">Número</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="numero" name="numero" type="text" placeholder="Número" maxlength="6" required class="form-control">
+                        <input id="numeroPartido" name="numeroPartido" type="text" placeholder="Número do partido" maxlength="6" required class="form-control">
                     </div>
                 </div>
 
@@ -654,7 +655,7 @@
                 <div class="col-md-12 m-t-15 text-center">
 
                     <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
-                    <div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div>
+                    <a href="cadastropartido.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
                 </div>
             </div>
         </form>
@@ -1043,7 +1044,7 @@
     <thead>
     <th class="text-center">Sigla</th>
     <th class="text-center">Nome</th>
-    <th class="text-center">Codigo</th>
+    <th class="text-center">Número</th>
     <th class="text-center">Ações</th>
 
     </thead>
@@ -1052,13 +1053,13 @@
         <td class="text-center">{sigla}</td>
         <td>{nome}</td>
         <td class="text-center">
-            {defetimento}
+            {numero}
         </td>
         <td class="text-center">
             <div class="center-block hidden-phone">
-                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-user"></i></button></a>
+                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Candidato"><i class="fa fa-user"></i></button></a>
                 <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-pencil"></i></button></a>
-                <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o eleitor {nome} ?');"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
+                <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o eleitor {nome} ?');" title="Excluir"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
             </div>
         </td>
     </tr>
