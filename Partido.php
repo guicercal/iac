@@ -8,5 +8,5 @@
 
 class Partido extends ADODB_Active_Record {
 
-    var $_table = 'partidos';
+    var $_table = 'partido';
 }

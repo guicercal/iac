@@ -12,6 +12,3 @@ ALTER TABLE partidos
 
   ALTER TABLE partidos
    ALTER COLUMN presidente TYPE character varying(255);
-
-ALTER TABLE partidos
-  DROP COLUMN estado;
