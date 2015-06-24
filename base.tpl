@@ -112,11 +112,10 @@
         <!-- Text input-->
         <input type="hidden" name="frmPassou" value="OK">
         <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
-<<<<<<< HEAD
         <input type="hidden" name="id_partido"  value="{id_partido}">
-=======
 
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
+
+
         <fieldset>
             <legend class="text">
                 <h5>
@@ -155,11 +154,10 @@
 
             </div>
         </fieldset>
-<<<<<<< HEAD
-        <br>
-=======
 
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
+        <br>
+
+
         <fieldset>
             <legend class="text">
                 <h5>
@@ -193,22 +191,18 @@
 
 
             <div class="row m-b-10">
-<<<<<<< HEAD
-                <div class="col-md-4">
-=======
+
                 <div class="col-md-5">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
+
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="col-md-6">
-=======
+
+
                 <div class="col-md-5">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                     <label class="control-label" for="cidade">Cidade</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -252,11 +246,10 @@
                 </div>
             </div>
         </fieldset>
-<<<<<<< HEAD
-        <br>
-=======
 
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
+        <br>
+
+
         <fieldset>
             <legend class="text">
                 <h5>
