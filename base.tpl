@@ -76,9 +76,8 @@
 *=> form_candidato
 
 <div class="row clearfix" >
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<section class="panel " >
+<div class="col-md-12">
+
 <header class="panel-heading">
     Formulário de Registro de candidato
 </header>
@@ -112,9 +111,6 @@
         <!-- Text input-->
         <input type="hidden" name="frmPassou" value="OK">
         <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
-        <input type="hidden" name="id_partido"  value="{id_partido}">
-
-
 
         <fieldset>
             <legend class="text">
@@ -155,9 +151,6 @@
             </div>
         </fieldset>
 
-        <br>
-
-
         <fieldset>
             <legend class="text">
                 <h5>
@@ -191,17 +184,13 @@
 
 
             <div class="row m-b-10">
-
                 <div class="col-md-5">
-
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                     </div>
                 </div>
-
-
                 <div class="col-md-5">
                     <label class="control-label" for="cidade">Cidade</label>
                     <div class="controls  m-t-10 m-b-10">
@@ -247,25 +236,12 @@
             </div>
         </fieldset>
 
-        <br>
-
-
         <fieldset>
             <legend class="text">
                 <h5>
                     Dados do candidato
                 </h5>
             </legend>
-<<<<<<< HEAD
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="control-label" for="nomeFantasia">Nome para a urna</label>
-                    <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label class="control-label" for="numeroCandidato">Número do candidato</label>
-                    <div class="controls">
-=======
             <div class="row m-b-10">
                 <div class="col-md-4">
                     <label class="control-label" for="estado">Partido</label>
@@ -286,14 +262,10 @@
                 <div class="col-md-4">
                     <label class="control-label" for="numeroCandidato">Número do candidato</label>
                     <div class="controls m-t-10 m-b-10">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                         <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
 
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="col-md-3">
-=======
 
             </div>
             <div class="row m-b-10">
@@ -302,7 +274,6 @@
                     <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
                 </div>
                 <div class="col-md-4">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                     <label class="control-label" for="cargo">Cargo</label>
                     <div class="controls">
                         <select  name="cargo" required id="cargo" class="form-control">
@@ -315,10 +286,6 @@
                 </div>
             </div>
         </fieldset>
-<<<<<<< HEAD
-        <br>
-=======
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
         <div class="row m-b-10">
             <div class="col-md-12">
                 <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
@@ -328,7 +295,7 @@
 
     </form>
 </div>
-</section>
+
 </div>
 </div>
 
@@ -452,7 +419,6 @@
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="login" name="login" type="text" placeholder="Login" required class="form-control">
                                 <p class="help-block">Para acesso a urna</p>
-<<<<<<< HEAD
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -485,50 +451,16 @@
 
                             </div>
                         </div>
-=======
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="control-label" for="password">Senha</label>
-                            <div class="controls m-t-10 m-b-10">
-                                <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control" required>
-                                <p class="help-block">Para acesso a urna</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="row m-b-10">
                         <div class="col-md-4">
-                            <label class="control-label" for="cep">CEP</label>
-                            <div class="controls  m-t-10 m-b-10">
-                                <input id="cep" name="cep" type="text" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="control-label" for="logradouro">Logradouro</label>
-                            <div class="controls  m-t-10 m-b-10">
-                                <input id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <label class="control-label" for="numero">Número</label>
-                            <div class="controls m-t-10 m-b-10">
-                                <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
-
-                            </div>
-                        </div>
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
-                    </div>
-                    <div class="row m-b-10">
-                        <div class="col-md-5">
                             <label class="control-label" for="bairro">Bairro</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <label class="control-label" for="cidade">Cidade</label>
                             <div class="controls  m-t-10 m-b-10">
                                 <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -571,13 +503,10 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
+                   </fieldset>
+
                     <div class="row">
-=======
-<<<<<<< HEAD
-                    <div class="row">
-=======
-                    </fieldset>
+
                     <br>
                     <fieldset>
                         <legend class="text">
@@ -630,8 +559,6 @@
                         </div>
                     </fieldset>
                     <div class="row m-b-10">
->>>>>>> 2223eaef7df440a0e18fdaadf3ebfc8df0ef71e7
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                         <div class="col-md-12">
                             <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                             <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
@@ -663,84 +590,6 @@
         <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
     </div>
     <div class="panel-body">
-<<<<<<< HEAD
-        <form id="cadpar" action="cadastropartido.php" method="POST" >
-            <!-- Text input-->
-            <input type="hidden" name="frmPassou" value="OK">
-
-            <div class="row m-b-10">
-                <div class="col-md-4">
-                    <label class="control-label" for="presidente">Presidente</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <input id="presidente" name="presidente" type="text" maxlength="11" onKeyPress ="mascaraCPF(cadpar.cpf);" formato="cpf" required placeholder="CPF" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label class="control-label" for="nome">Nome</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label class="control-label" for="numero">Número</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <input id="numero" name="numero" type="text" placeholder="Número" maxlength="6" required class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label class="control-label" for="deferimento">Deferimento</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control"
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row m-b-10">
-                <div class="col-md-2">
-                    <label class="control-label" for="estado">Estado</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <select name="estado" required id="estado" class="form-control">
-                            <option value=""></option>
-                            <option value="AC">AC</option>
-                            <option value="AL">AL</option>
-                            <option value="AM">AM</option>
-                            <option value="AP">AP</option>
-                            <option value="BA">BA</option>
-                            <option value="CE">CE</option>
-                            <option value="DF">DF</option>
-                            <option value="ES">ES</option>
-                            <option value="GO">GO</option>
-                            <option value="MA">MA</option>
-                            <option value="MG">MG</option>
-                            <option value="MS">MS</option>
-                            <option value="MT">MT</option>
-                            <option value="PA">PA</option>
-                            <option value="PB">PB</option>
-                            <option value="PE">PE</option>
-                            <option value="PI">PI</option>
-                            <option value="PR">PR</option>
-                            <option value="RJ">RJ</option>
-                            <option value="RN">RN</option>
-                            <option value="RS">RS</option>
-                            <option value="RO">RO</option>
-                            <option value="RR">RR</option>
-                            <option value="SC">SC</option>
-                            <option value="SE">SE</option>
-                            <option value="SP">SP</option>
-                            <option value="TO">TO</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label class="control-label" for="sigla">Sigla</label>
-                    <div class="controls  m-t-10 m-b-10">
-                        <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control"
-                    </div>
-                </div>
-            </div>
-=======
         <form id="cadpar" action="cadastropartido.php?a=2" method="POST" novalidate onsubmit="return validarFormulario(this);">
             <!-- Text input-->
             <input type="hidden" name="frmPassou" value="OK">
@@ -786,7 +635,6 @@
                     <label class="control-label" for="cep">CEP</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="cep" name="cep" type="text" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
 
                     </div>
                 </div>
@@ -802,14 +650,6 @@
                     <div class="controls m-t-10 m-b-10">
                         <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
 
-<<<<<<< HEAD
-            <div class="col-md-4">
-                <div>
-                    <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
-                    <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
-                </div>
-            </div>
-=======
                     </div>
                 </div>
             </div>
@@ -818,7 +658,6 @@
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
 
                     </div>
                 </div>
@@ -868,13 +707,10 @@
             <div class="row">
                 <div class="col-md-12 m-t-15 text-center">
 
-<<<<<<< HEAD
-=======
                     <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                     <div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div>
                 </div>
             </div>
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
         </form>
     </div>
 </section>
@@ -954,17 +790,6 @@
             </ol>
         </legend>
 
-<<<<<<< HEAD
-<section class="panel">
-    <fieldset>
-        <legend>
-            <ol class="breadcrumb">
-                <li class="active">Configurações da Eleição</li>
-            </ol>
-        </legend>
-
-=======
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
         <div class="alert alert-block alert-danger form-errors-alert">
             <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
                 <i class="fa fa-times"></i>
@@ -993,11 +818,7 @@
                         <label class="control-label" for="textinput">Data de início</label>
                         <div class="controls m-t-10 m-b-10">
                             <input id="datainicio" name="data_inicio" type="date" value="{data_inicio}" required placeholder="Data de início" onchange="$(datatermino).attr('min',$(this).val());
-<<<<<<< HEAD
-                                datatermino.value = (datatermino.value < this.value) ? this.value : datatermino.value;" class="form-control">
-=======
                             datatermino.value = (datatermino.value < this.value) ? this.value : datatermino.value;" class="form-control">
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -1059,19 +880,6 @@
 
 
 *=> eleitores_table_head
-<<<<<<< HEAD
-
-
-<table class="table table-hover table-bordered">
-    <thead>
-    <th class="text-center">CPF</th>
-    <th class="text-center">Nome</th>
-    <th class="text-center">Votou?</th>
-    <th class="text-center">Ações</th>
-
-    </thead>
-    *=> eleitores_table_linha
-=======
 <table class="table table-hover table-bordered">
     <thead>
         <th class="text-center">CPF</th>
@@ -1080,7 +888,6 @@
         <th class="text-center">Ações</th>
     </thead>
 *=> eleitores_table_linha
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
     <tr>
         <td class="text-center">{cpf}</td>
         <td>{nome}</td>
@@ -1094,38 +901,6 @@
             </div>
         </td>
     </tr>
-<<<<<<< HEAD
-
-    *=> eleitores_table_linha_eof
-    <tr>
-        <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
-
-    </tr>
-    *=> eleitores_table_foot
-</table>
-<div class="box-tools m-b-15">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            {paginacao}
-        </div>
-        <div class="col-md-4">
-            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
-                <div class="input-group">
-
-                    <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
-                    <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                    </div>
-
-
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-=======
 
 *=> eleitores_table_linha_eof
     <tr>
@@ -1149,61 +924,8 @@
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
                     </div>
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
-
-*=> eleitores_table_head
 
 
-<table class="table table-hover table-bordered">
-    <thead>
-    <th class="text-center">CPF</th>
-    <th class="text-center">Nome</th>
-    <th class="text-center">Votou?</th>
-    <th class="text-center">Ações</th>
-
-    </thead>
-    *=> partidos_table_linha
-    <tr>
-        <td class="text-center">{cpf}</td>
-        <td>{nome}</td>
-        <td>{partido}</td>
-        <td class="text-center">
-            <span class="label {cor_votou}">{votou}</span>
-        </td>
-        <td class="text-center">
-            <div class="center-block hidden-phone">
-                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-pencil"></i></button></a>
-                <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o eleitor {nome} ?');"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
-            </div>
-        </td>
-    </tr>
-
-    *=> partidos_table_linha_eof
-    <tr>
-        <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
-
-<<<<<<< HEAD
-    </tr>
-    *=> partidos_table_foot
-</table>
-<div class="box-tools m-b-15">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            {paginacao}
-        </div>
-        <div class="col-md-4">
-            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
-                <div class="input-group">
-
-                    <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
-                    <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                    </div>
-
-
-=======
->>>>>>> 91572a1e032d34d1b2321e6e1ea1754cc75843ea
                 </div>
             </form>
         </div>
