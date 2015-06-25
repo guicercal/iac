@@ -166,7 +166,7 @@ if($_GET['a'] == '3'){
 
             if($candidato->Save()){
                 $conn->Execute('COMMIT;');
-                $tpl->set('form_cadastro_candidato', 'show-alerts');
+                $tpl->set('form_candidato', 'show-alerts');
             }
             else{
                 $conn->Execute('ROLLBACK;');

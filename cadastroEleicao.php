@@ -44,7 +44,7 @@ $tpl->Show('menu_principal');
 
 if($_POST['frmPassou'] != "OK"){
     $tpl->set('id_eleicao',$_GET);
-    $tpl->Show('form_eleicao');
+    $tpl->Show('form_configuracoes');
 
 } else {
     $eleicao = new Eleicoes();
@@ -69,7 +69,7 @@ if($_POST['frmPassou'] != "OK"){
 
         if ($eleicao->Save()) {
             $tpl->set('cadastro_sucesso', 'show-alerts');
-            $tpl->Show('form_eleicao');
+            $tpl->Show('form_configuracoes');
             $conn->Execute('COMMIT;');
         } else {
             $conn->Execute('ROLLBACK;');
@@ -116,7 +116,7 @@ if($_GET['a'] == '3'){
 
             if($candidato->Save()){
                 $conn->Execute('COMMIT;');
-                $tpl->set('form_eleicao', 'show-alerts');
+                $tpl->set('form_configuracoes', 'show-alerts');
             }
             else{
                 $conn->Execute('ROLLBACK;');
@@ -149,7 +149,7 @@ if($_GET['a'] == '3'){
         $tpl->set('vereadores',$eleicao->vereadores);
         $tpl->set('deputados',$eleicao->deputados);
         $tpl->set('prefeito',$eleicao->prefeito);
-        $tpl->Show('form_eleicao');
+        $tpl->Show('form_configuracoes');
     }
 
 
