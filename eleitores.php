@@ -69,6 +69,7 @@ if($_GET['a'] == "1" || $_GET['a'] == ""){
         $tpl->Show('eleitores_table_linha');
         $res->MoveNext();
     }
+    $res = $conn->Execute('select * from pessoa '. $where2);
 
     $current = $_GET['page'] != "" ? $_GET['page'] : 0;
     $filtro = $_GET['filtro'] !="" ? '&filtro'.$_GET['filtro'] : "";

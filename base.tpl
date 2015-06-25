@@ -1099,3 +1099,66 @@
         </div>
     </div>
 </div>
+
+*=> candidatos_table_head
+
+
+<table class="table table-hover table-bordered">
+    <thead>
+    <th class="text-center">Nome da urna</th>
+    <th class="text-center">Nome</th>
+    <th class="text-center">Número</th>
+    <th class="text-center">Ações</th>
+
+    </thead>
+    *=> candidatos_table_linha
+    <tr>
+        <td class="text-center">{nome_fantasia}</td>
+        <td>{nome}</td>
+        <td class="text-center">
+            {numero}
+        </td>
+        <td class="text-center">
+            <div class="center-block hidden-phone">
+                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Ver dados"><i class="fa fa-user"></i></button></a>
+                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-pencil"></i></button></a>
+                <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o candidato {nome} ?');" title="Excluir"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
+            </div>
+        </td>
+    </tr>
+
+    *=> canddatos_table_linha_eof
+    <tr>
+        <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
+
+    </tr>
+
+    *=> candidatos_table_foot
+</table>
+<div class="box-tools m-b-15">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="cadastroCandidato.php?a=2" title="Novo Partido">
+                <div class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus-sign"> Novo</span>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            {paginacao}
+        </div>
+        <div class="col-md-4">
+            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
+                <div class="input-group">
+
+                    <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

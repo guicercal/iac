@@ -103,6 +103,7 @@ if($_GET['a'] == "2"){
 //editar cadastro do partido
 if($_GET['a'] == '3'){
 
+
     $partido = new Partido();
 
     if($_POST['frmPassou'] == "OK"){
@@ -165,6 +166,8 @@ if($_GET['a'] == '3'){
         $tpl->Show('form_cadastro_partido');
     }
     
+
+
 }
 if($_GET['a'] == "4"){
     $partido = new Partido();
