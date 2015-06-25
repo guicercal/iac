@@ -131,6 +131,76 @@ if($_POST['frmPassou'] != "OK"){
         }
     }
 }
+//provavel excluir
+if($_GET['a'] == "4"){
+    $candidato = new Candidato();
+    $candidato->Load("id_candidato = '".$_GET['id']."'");
+
+
+    $cadidato->Delete();
+
+
+    header('Location: cadastroCandidato.php?a=1');
+
+}
+
+
+// provavel editar
+if($_GET['a'] == '3'){
+
+
+    $candidato = new Candidato();
+
+    if($_POST['frmPassou'] == "OK"){
+
+        if($candidato->Load("id_candidato = '",$_GET['id'])."'"){
+
+            $candidato->id_partido = ($_POST['id_partido']);
+            $candidato->numeroCandidato = ($_POST['numeroCandidato']);
+            $candidato->coligacao = ($_POST['coligacao']);
+            $candidato->nomeFantasia = ($_POST['nomeFantasia']);
+            $candidato->cargo = ($_POST['cargo']);
+
+
+            $conn->Execute('START TRANSACTION;');
+
+            if($candidato->Save()){
+                $conn->Execute('COMMIT;');
+                $tpl->set('form_cadastro_candidato', 'show-alerts');
+            }
+            else{
+                $conn->Execute('ROLLBACK;');
+                $tpl->set('gravar_err', 'show-alerts');
+            }
+        }
+
+    }
+    else{
+        $candidato->Load("id_candidato = '".$_GET['id']."'");
+    }
+
+    if($candidato){
+
+        $candidato->id_partido = ($_POST['id_partido']);
+        $candidato->numeroCandidato = ($_POST['numeroCandidato']);
+        $candidato->coligacao = ($_POST['coligacao']);
+        $candidato->nomeFantasia = ($_POST['nomeFantasia']);
+        $candidato->cargo = ($_POST['cargo']);
+
+
+        $tpl->set('id_partido',$candidato->id_partido);
+        $tpl->set('numeroCandidato',$candidato->numeroCandidato);
+        $tpl->set('coligacao',$candidato->coligacao);
+        $tpl->set('nomeFantasia',$candidato->nomeFantasia);
+        $tpl->set('cargo',$candidato->cargo);
+        $tpl->Show('form_cadastro_partido');
+    }
+
+
+
+}
+
+
 
 //======================================================================================================================
 $tpl->Show('footer');
