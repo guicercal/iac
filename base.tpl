@@ -1162,3 +1162,154 @@
         </div>
     </div>
 </div>
+
+    *=> urna
+
+<div class="panel panel-default">
+    <div class="panel-heading" align="center"> <h4>Vote com consciência! </h4>  </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+               <div class="row">
+                   <div class="col-md-1"></div>
+                   <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="row"></div>
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                                <img src="img\brhue.jpg" class="img-circle" >
+                            </div>
+                            <div class="row">
+                           <img src="img\brhue.jpg" height="80%" width="80%" class="img-circle">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label type="text" class="form-control" placeholder="Candidato" aria-describedby="sizing-addon">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-9">
+                                    <label type="text" class="form-control" placeholder="Candidato" aria-describedby="sizing-addon">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >1</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >2</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >3</button>
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >4</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >5</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >6</button>
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >7</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >8</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >9</button>
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" >0</button>
+                                </div>
+
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-default" >BRANCO</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-danger  active" >CORRIGE</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-success btn-lg active" >CONFIRMA</button>
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                   </div>
+                   <div class="col-md-1"></div>
+            </div>
+                <br>
+                <br>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-3">
+                       Nome do candidato:
+                    </div>
+                    <div class="col-md-3">
+                        Número:
+                    </div>
+                    <div class="col-md-3">
+                        Partido:
+                    </div>
+                    <div class="col-md-3">
+                        Coligação:
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
