@@ -105,8 +105,8 @@ if($_GET['a'] == '3'){
             $eleicao->id_eleicao = ($_POST['id_eleicao']);
             $eleicao->dataInicio = ($_POST['data_inicio']);
             $eleicao->dataTermino = ($_POST['data_termino']);
-            $eleicao->horaInicio = ($_POST['horario_inicio']);
-            $eleicao->horaTermino = ($_POST['horario_termino']);
+            $eleicao->horarioInicio = ($_POST['horario_inicio']);
+            $eleicao->horarioTermino = ($_POST['horario_termino']);
             $eleicao->vereadores = ($_POST['qtd_vagas_vereador']);
             $eleicao->deputados = ($_POST['qtd_vagas_deputado']);
             $eleicao->prefeito = ($_POST['qtd_vagas_prefeito']);
@@ -144,8 +144,8 @@ if($_GET['a'] == '3'){
         $tpl->set('id_eleicao',$eleicao->id_eleicao);
         $tpl->set('dataInicio',$eleicao->data_inicio);
         $tpl->set('dataTermino',$eleicao->data_termino);
-        $tpl->set('horaInicio',$eleicao->hora_inicio);
-        $tpl->set('horaTErmino',$eleicao->hora_temrino);
+        $tpl->set('horarioInicio',$eleicao->horario_inicio);
+        $tpl->set('horarioTermino',$eleicao->horario_termino);
         $tpl->set('vereadores',$eleicao->qtd_vagas_vereador);
         $tpl->set('deputados',$eleicao->qtd_vagas_deputado);
         $tpl->set('prefeito',$eleicao->qtd_vagas_prefeito);
