@@ -4255,6 +4255,18 @@ padding: 6px 10px;
     width: 80%;
     font-size: large;
     text-decoration-color: #006600;
+    border-bottom: 20px, #8c8b94;
+
+}
+
+.btn-black:hover{
+    color: #a4ff91;
+
+}
+
+.btn-black:active{
+
+    color: #a4ff91;
 }
 
 
