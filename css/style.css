@@ -4294,3 +4294,13 @@ padding: 6px 10px;
     right: 10%;
     top: 20px;
 }
+
+.row-candidato{
+    width: 350px;
+    height:350px ;
+}
+
+.row-partido{
+    width: 125px;
+    height: 100px ;
+}

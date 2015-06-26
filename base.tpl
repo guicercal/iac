@@ -1162,13 +1162,14 @@
                     <div class="row">
                         <div class="col-md-6">
 
-                            <div class="row"></div>
+                            <div class="row ">
                             <div class="col-md-8"></div>
-                            <div class="col-md-4">
-                                <img src="img\brhue.jpg" class="img-circle" >
+                            <div class="col-md-4 row-partido">
+                                <img src="img\brhue.jpg" class="img-circle"  height="100%" width="100%" >
                             </div>
-                            <div class="row">
-                           <img src="img\brhue.jpg" height="80%" width="80%" class="img-circle">
+                            </div>
+                            <div class="row-candidato">
+                           <img src="img\brhue.jpg" height="100%" width="100%" class="img-circle">
                             </div>
                             <br>
                             <div class="row">
