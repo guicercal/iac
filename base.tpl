@@ -113,7 +113,7 @@
         <!-- Text input-->
         <input type="hidden" name="frmPassou" value="OK">
         <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
-
+        <input type="hidden" name="id_partido" value="{id_partido}">
         <fieldset>
             <legend class="text">
                 <h5>
@@ -187,14 +187,14 @@
 
 
             <div class="row m-b-10">
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label class="control-label" for="cidade">Cidade</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -246,41 +246,22 @@
                 </h5>
             </legend>
             <div class="row m-b-10">
-                <div class="col-md-4">
-                    <label class="control-label" for="estado">Partido</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <select name="partido" required id="partido" class="form-control">
-                            <option value="">Partido</option>
-                        </select>
-                    </div>
+                <div class="col-md-6">
+                    <label class="control-label" for="nomeFantasia">Nome Fantasia</label>
+                    <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome Fantasia" required class="form-control">
                 </div>
-                <div class="col-md-4">
-                    <label class="control-label" for="estado">Coligação</label>
-                    <div class="controls m-t-10 m-b-10">
-                        <select  name="coligacao" required id="coligacao" class="form-control">
-                            <option value="">Coligação</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="control-label" for="numeroCandidato">Número do candidato</label>
-                    <div class="controls m-t-10 m-b-10">
+                    <div>
                         <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
 
                     </div>
                 </div>
-
-            </div>
-            <div class="row m-b-10">
-                <div class="col-md-8">
-                    <label class="control-label" for="nomeFantasia">Nome para a urna</label>
-                    <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="control-label" for="cargo">Cargo</label>
                     <div class="controls">
                         <select  name="cargo" required id="cargo" class="form-control">
-                            <option value="">Cargo</option>
+                            <option value=""></option>
                             <option value="1">Vereador</option>
                             <option value="2">Deputado Estadual</option>
                             <option value="3">Prefeito</option>
@@ -290,7 +271,7 @@
             </div>
         </fieldset>
         <br>
-        <div class="row m-b-10">
+        <div class="row m-b-10" align="center">
             <div class="col-md-12">
                 <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
                 <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
@@ -551,9 +532,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label class="control-label" for="nome">Nome</label>
+                    <label class="control-label" for="nome">Nome do partido</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="nome" name="nome" type="text" required placeholder="Nome" class="form-control">
+                        <input id="nome" name="nome" type="text" required placeholder="Nome do partido" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -565,17 +546,23 @@
 
             </div>
             <div class="row m-b-10">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label class="control-label" for="deferimento">Deferimento</label>
                     <div class="controls m-t-10 m-b-10">
                         <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control">
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label class="control-label" for="sigla">Sigla</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control"
+                        <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="coligacao">Coligação</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="coligacao" name="coligacao" type="text" placeholder="Coligação" required class="form-control">
                     </div>
                 </div>
             </div>
@@ -603,14 +590,14 @@
                 </div>
             </div>
             <div class="row m-b-10">
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6    ">
                     <label class="control-label" for="cidade">Cidade</label>
                     <div class="controls  m-t-10 m-b-10">
                         <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
@@ -1179,13 +1166,14 @@
                     <div class="row">
                         <div class="col-md-6">
 
-                            <div class="row"></div>
+                            <div class="row ">
                             <div class="col-md-8"></div>
-                            <div class="col-md-4">
-                                <img src="img\brhue.jpg" class="img-circle" >
+                            <div class="col-md-4 row-partido">
+                                <img src="img\brhue.jpg" class="img-circle"  height="100%" width="100%" >
                             </div>
-                            <div class="row">
-                           <img src="img\brhue.jpg" height="80%" width="80%" class="img-circle">
+                            </div>
+                            <div class="row-candidato">
+                           <img src="img\brhue.jpg" height="100%" width="100%" class="img-circle">
                             </div>
                             <br>
                             <div class="row">
@@ -1265,18 +1253,15 @@
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(0);">0</button>
                                 </div>
-
                                 <div class="col-md-3">
-
                                 </div>
                                 <div class="col-md-1"></div>
-
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-default" >BRANCO</button>
+                                    <button type="button" class="btn btn-default" name="btnBranco" value="branco" >BRANCO</button>
                                 </div>
 
                                 <div class="col-md-3">

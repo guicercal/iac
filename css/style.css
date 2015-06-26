@@ -4256,6 +4256,18 @@ padding: 6px 10px;
     height: 50px;
     font-size: 20pt;
     text-decoration-color: #006600;
+    border-bottom: 20px, #8c8b94;
+
+}
+
+.btn-black:hover{
+    color: #a4ff91;
+
+}
+
+.btn-black:active{
+
+    color: #a4ff91;
 }
 
 
@@ -4282,4 +4294,14 @@ padding: 6px 10px;
     position: absolute;
     right: 10%;
     top: 20px;
+}
+
+.row-candidato{
+    width: 350px;
+    height:350px ;
+}
+
+.row-partido{
+    width: 125px;
+    height: 100px ;
 }
