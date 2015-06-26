@@ -58,13 +58,13 @@ if($_POST['frmPassou'] != "OK"){
         //criação de candidato
         $eleicao = new Eleicoes();
         $eleicao->id_eleicao = ($_POST['id_eleicao']);
-        $eleicao->dataInicio = ($_POST['dataInicio']);
-        $eleicao->dataFim = ($_POST['dataFim']);
-        $eleicao->horaInicio = ($_POST['horaInicio']);
-        $eleicao->horaFim = ($_POST['horaFim']);
-        $eleicao->vereadores = ($_POST['vereadores']);
-        $eleicao->deputados = ($_POST['deputados']);
-        $eleicao->prefeito = ($_POST['prefeito']);
+        $eleicao->dataInicio = ($_POST['data_inicio']);
+        $eleicao->dataTermino = ($_POST['data_termino']);
+        $eleicao->horaInicio = ($_POST['hora_inicio']);
+        $eleicao->horaTermino = ($_POST['hora_termino']);
+        $eleicao->vereadores = ($_POST['qtd_vagas_vereador']);
+        $eleicao->deputados = ($_POST['qtd_vagas_deputado']);
+        $eleicao->prefeito = ($_POST['qtd_vagas_prefeito']);
 
 
         if ($eleicao->Save()) {
@@ -103,13 +103,13 @@ if($_GET['a'] == '3'){
         if($c->Load("id_eleicao = '",$_GET['id'])."'"){
 
             $eleicao->id_eleicao = ($_POST['id_eleicao']);
-            $eleicao->dataInicio = ($_POST['dataInicio']);
-            $eleicao->dataFim = ($_POST['dataFim']);
-            $eleicao->horaInicio = ($_POST['horaInicio']);
-            $eleicao->horaFim = ($_POST['horaFim']);
-            $eleicao->vereadores = ($_POST['vereadores']);
-            $eleicao->deputados = ($_POST['deputados']);
-            $eleicao->prefeito = ($_POST['prefeito']);
+            $eleicao->dataInicio = ($_POST['data_inicio']);
+            $eleicao->dataTermino = ($_POST['data_termino']);
+            $eleicao->horaInicio = ($_POST['horario_inicio']);
+            $eleicao->horaTermino = ($_POST['horario_termino']);
+            $eleicao->vereadores = ($_POST['qtd_vagas_vereador']);
+            $eleicao->deputados = ($_POST['qtd_vagas_deputado']);
+            $eleicao->prefeito = ($_POST['qtd_vagas_prefeito']);
 
 
             $conn->Execute('START TRANSACTION;');
@@ -132,23 +132,23 @@ if($_GET['a'] == '3'){
     if($eleicao){
 
         $eleicao->id_eleicao = ($_POST['id_eleicao']);
-        $eleicao->dataInicio = ($_POST['dataInicio']);
-        $eleicao->dataFim = ($_POST['dataFim']);
-        $eleicao->horaInicio = ($_POST['horaInicio']);
-        $eleicao->horaFim = ($_POST['horaFim']);
-        $eleicao->vereadores = ($_POST['vereadores']);
-        $eleicao->deputados = ($_POST['deputados']);
-        $eleicao->prefeito = ($_POST['prefeito']);
+        $eleicao->dataInicio = ($_POST['data_inicio']);
+        $eleicao->dataTermino = ($_POST['data_termino']);
+        $eleicao->horarioInicio = ($_POST['horario_inicio']);
+        $eleicao->horarioTermino = ($_POST['horario_termino']);
+        $eleicao->vereadores = ($_POST['qtd_vagas_vereador']);
+        $eleicao->deputados = ($_POST['qtd_vagas_deputado']);
+        $eleicao->prefeito = ($_POST['qtd_vagas_prefeito']);
 
 
         $tpl->set('id_eleicao',$eleicao->id_eleicao);
-        $tpl->set('dataInicio',$eleicao->dataInicio);
-        $tpl->set('dataFim',$eleicao->dataFim);
-        $tpl->set('horaInicio',$eleicao->horaInicio);
-        $tpl->set('horaFim',$eleicao->horaFim);
-        $tpl->set('vereadores',$eleicao->vereadores);
-        $tpl->set('deputados',$eleicao->deputados);
-        $tpl->set('prefeito',$eleicao->prefeito);
+        $tpl->set('dataInicio',$eleicao->data_inicio);
+        $tpl->set('dataTermino',$eleicao->data_termino);
+        $tpl->set('horaInicio',$eleicao->hora_inicio);
+        $tpl->set('horaTErmino',$eleicao->hora_temrino);
+        $tpl->set('vereadores',$eleicao->qtd_vagas_vereador);
+        $tpl->set('deputados',$eleicao->qtd_vagas_deputado);
+        $tpl->set('prefeito',$eleicao->qtd_vagas_prefeito);
         $tpl->Show('form_configuracoes');
     }
 

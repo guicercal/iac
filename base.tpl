@@ -271,14 +271,14 @@
             </div>
             <div class="row m-b-10">
                 <div class="col-md-8">
-                    <label class="control-label" for="nomeFantasia">Nome para a urna</label>
-                    <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome para a urna" required class="form-control">
+                    <label class="control-label" for="nomeFantasia">Nome Fantasia</label>
+                    <input id="nomeFantasia" name="nomeFantasia" type="text" placeholder="Nome Fantasia" required class="form-control">
                 </div>
                 <div class="col-md-4">
                     <label class="control-label" for="cargo">Cargo</label>
                     <div class="controls">
                         <select  name="cargo" required id="cargo" class="form-control">
-                            <option value="">Cargo</option>
+                            <option value=""></option>
                             <option value="1">Vereador</option>
                             <option value="2">Deputado Estadual</option>
                             <option value="3">Prefeito</option>
