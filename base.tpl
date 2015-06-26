@@ -77,10 +77,12 @@
 
 <div class="row clearfix" >
 <div class="col-md-12">
-
-<header class="panel-heading">
-    Formulário de Registro de candidato
-</header>
+<ol class="breadcrumb">
+    <li><a href="cadastropartido.php?a=1">Partidos</a></li>
+    <li class="active">Candidatos</li>
+    <li><a href="cadastroCandidato.php?a=1&partido={id_partido}">Candidatos do partido: <b>{nome_partido} - {sigla_partido}</b></a></li>
+    <li class="active">Cadastrar novo candidato</b></li>
+</ol>
 <div class="alert alert-block alert-danger form-errors-alert">
     <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
         <i class="fa fa-times"></i>
@@ -545,7 +547,7 @@
                 <div class="col-md-4">
                     <label class="control-label" for="presidente">Presidente</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="presidente" name="presidente" type="text" maxlength="11" required placeholder="Nome do Presidente" class="form-control">
+                        <input id="presidente" name="presidente" type="text" maxlength="255" required placeholder="Nome do Presidente" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -1057,7 +1059,7 @@
         </td>
         <td class="text-center">
             <div class="center-block hidden-phone">
-                <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Candidato"><i class="fa fa-user"></i></button></a>
+                <a href="{link_candidatos}"><button class="btn btn-default btn-xs" title="Candidato"><i class="fa fa-user"></i></button></a>
                 <a href="{link_editar}"><button class="btn btn-default btn-xs" title="Editar"><i class="fa fa-pencil"></i></button></a>
                 <a href="{link_excluir}" onclick="return confirm('Tem certeza que deseja excluir o eleitor {nome} ?');" title="Excluir"><button class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></button></a>
             </div>
@@ -1085,7 +1087,7 @@
             {paginacao}
         </div>
         <div class="col-md-4">
-            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
+            <form name="searcEleitor" action="cadastropartido.php?a=1" method="get">
                 <div class="input-group">
 
                     <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
@@ -1101,8 +1103,11 @@
 </div>
 
 *=> candidatos_table_head
-
-
+<ol class="breadcrumb">
+    <li><a href="cadastropartido.php?a=1">Partidos</a></li>
+    <li class="active">Candidatos</li>
+    <li class="active">Candidatos do partido: <b>{nome_partido} - {sigla_partido}</b></li>
+</ol>
 <table class="table table-hover table-bordered">
     <thead>
     <th class="text-center">Nome da urna</th>
@@ -1111,7 +1116,7 @@
     <th class="text-center">Ações</th>
 
     </thead>
-    *=> candidatos_table_linha
+*=> candidatos_table_linha
     <tr>
         <td class="text-center">{nome_fantasia}</td>
         <td>{nome}</td>
@@ -1127,13 +1132,12 @@
         </td>
     </tr>
 
-    *=> canddatos_table_linha_eof
+*=> candidatos_table_linha_eof
     <tr>
         <td colspan="4" class="text-center">Nenhum registro encontrado!</td>
-
     </tr>
 
-    *=> candidatos_table_foot
+*=> candidatos_table_foot
 </table>
 <div class="box-tools m-b-15">
     <div class="row">
@@ -1148,7 +1152,7 @@
             {paginacao}
         </div>
         <div class="col-md-4">
-            <form name="searcEleitor" action="eleitores.php?a=1" method="get">
+            <form name="searchEleitor" action="eleitores.php?a=1" method="get">
                 <div class="input-group">
 
                     <input type="text" name="filtro" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Pesquisar"/>
@@ -1163,8 +1167,8 @@
     </div>
 </div>
 
-    *=> urna
-
+*=> urna
+<script type="text/javascript" src="js/urna.js"></script>
 <div class="panel panel-default">
     <div class="panel-heading" align="center"> <h4>Vote com consciência! </h4>  </div>
         <div class="panel panel-default">
@@ -1194,9 +1198,9 @@
 
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-9">
-                                    <label type="text" class="form-control" placeholder="Candidato" aria-describedby="sizing-addon">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-9">
+                                    <input type="text" id="campo-voto" disabled class="form-control" placeholder="Candidato" aria-describedby="sizing-addon">
                                 </div>
                             </div>
                             <br>
@@ -1204,15 +1208,15 @@
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >1</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(1);" >1</button>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >2</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(2);">2</button>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >3</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(3);">3</button>
                                 </div>
                                 <div class="col-md-1"></div>
 
@@ -1221,32 +1225,15 @@
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >4</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(4);">4</button>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >5</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(5);">5</button>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >6</button>
-                                </div>
-                                <div class="col-md-1"></div>
-
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >7</button>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >8</button>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >9</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(6);">6</button>
                                 </div>
                                 <div class="col-md-1"></div>
 
@@ -1255,11 +1242,28 @@
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(7);">7</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(8);">8</button>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(9);">9</button>
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-3">
 
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-black btn-lg active" >0</button>
+                                    <button type="button" class="btn btn-black btn-lg active" onclick="digitaUrna(0);">0</button>
                                 </div>
 
                                 <div class="col-md-3">
@@ -1276,7 +1280,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-danger  active" >CORRIGE</button>
+                                    <button type="button" class="btn btn-danger  active" onclick="corrige();">CORRIGE</button>
                                 </div>
 
                                 <div class="col-md-3">

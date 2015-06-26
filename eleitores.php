@@ -37,8 +37,8 @@ if($_GET['a'] == "1" || $_GET['a'] == ""){
     }
 
     if($_GET['filtro'] != ""){
-        $where .= "WHERE nome like '%".$_GET['filtro']."%' OR cpf like '%".str_replace(array('-','.'),'',$_GET['filtro'])."%'";
-        $where2 .= "nome like '%".$_GET['filtro']."%' OR cpf like '%".str_replace(array('-','.'),'',$_GET['filtro'])."%'";
+        $where .= "WHERE UPPER(nome) like '%".strtoupper($_GET['filtro'])."%' OR cpf like '%".str_replace(array('-','.'),'',$_GET['filtro'])."%'";
+        $where2 .= "UPPER(nome) like '%".strtoupper($_GET['filtro'])."%' OR cpf like '%".str_replace(array('-','.'),'',$_GET['filtro'])."%'";
     }
 
     $SQL = "SELECT * FROM pessoa $where LIMIT 10 $page";
@@ -73,11 +73,10 @@ if($_GET['a'] == "1" || $_GET['a'] == ""){
 
     $current = $_GET['page'] != "" ? $_GET['page'] : 0;
     $filtro = $_GET['filtro'] !="" ? '&filtro'.$_GET['filtro'] : "";
-
+    $res = $conn->Execute("select * from pessoa $where");
     $tpl->set('paginacao',paginacao($res->PO_RecordCount('pessoa',$where2),$current,'eleitores.php',$filtro));
     $tpl->Show('eleitores_table_foot');
 }
-
 
 if($_GET['a'] == "2"){
 

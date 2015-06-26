@@ -22,8 +22,8 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
     }
 
     if($_GET['filtro'] != ""){
-        $where .= "WHERE nome like '%".$_GET['filtro']."%' OR sigla like '%".$_GET['filtro']."%'";
-        $where2 .= "nome like '%".$_GET['filtro']."%' OR sigla like '%".$_GET['filtro']."%'";
+        $where .= "WHERE UPPER(nome) like '%".strtoupper($_GET['filtro'])."%' OR sigla like '%".strtoupper($_GET['filtro'])."%'";
+        $where2 .= "UPPER(nome) like '%".strtoupper($_GET['filtro'])."%' OR sigla like '%".strtoupper($_GET['filtro'])."%'";
     }
 
     $SQL = "SELECT * FROM partidos $where LIMIT 10 $page";
@@ -43,6 +43,7 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
         $tpl->set('sigla',$res->fields('sigla'));
         $tpl->set('numero',$res->fields('numero'));
 
+        $tpl->set('link_candidatos' ,'cadastroCandidato.php?a=1&partido='.$res->fields('id_partido'));
         $tpl->set('link_editar' ,'cadastropartido.php?a=3&id='.$res->fields('id_partido'));
         $tpl->set('link_excluir','cadastropartido.php?a=4&id='.$res->fields('id_partido'));
         $tpl->Show('partidos_table_linha');
@@ -52,7 +53,7 @@ if($_GET['a'] == "1" || $_GET['a'] == ''){
     $current = $_GET['page'] != "" ? $_GET['page'] : 0;
     $filtro = $_GET['filtro'] !="" ? '&filtro'.$_GET['filtro'] : "";
 
-    $res = $conn->Execute("select * from partidos $where2");
+    $res = $conn->Execute("select * from partidos $where");
     $tpl->set('paginacao',paginacao($res->PO_RecordCount('partidos',$where2),$current,'cadastropartido.php',$filtro));
     $tpl->Show('partidos_table_foot');
 }

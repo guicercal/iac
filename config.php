@@ -104,7 +104,7 @@ function mask($val, $mask)
 
 function paginacao($itens,$current,$root_link,$query){
     $html = "";
-    var_dump($itens);
+
     if($itens >= 10){
         $pages = (int)($itens/10);
         $html .= "<ul class=\"pagination pagination-sm no-margin pull-right\">
