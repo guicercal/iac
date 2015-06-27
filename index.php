@@ -10,13 +10,21 @@
 require_once('config.php');
 $tpl->Show('header');
 
-//verificca se o eleitor já votou
-if($_SESSION['user']->votou == null || $_SESSION['user']->votou == 'f'){
-    $tpl->Show('urna');
 
-}
-else{
-    $tpl->Show('voce_ja_votou');
+$pessoa = new Pessoa();
+$test = unserialize($_SESSION['user']);
+
+$tpl->Show('header');
+
+if($pessoa->Load("cpf='".$test->cpf."'")){
+
+    if($pessoa->votou == 't'){
+        $tpl->Show('voce_ja_votou');
+    }
+    else{
+        $tpl->Show('urna');
+    }
+
 }
 $tpl->Show('footer');
 

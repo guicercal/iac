@@ -35,6 +35,7 @@ require_once('cargos.php');
 require_once('Eleicoes.php');
 require_once('Partido.php');
 require_once('Candidato.php');
+require_once('Voto.php');
 
 
 //define algumas variaveis globais
@@ -149,6 +150,52 @@ function onlyAdmin(){
         session_destroy();
         header('Location: login.php');
         die();
+    }
+}
+
+
+function uploadFoto(){
+
+    if(isset($_FILES['foto']['name']) && $_FILES["foto"]["error"] == 0)
+    {
+
+        $arquivo_tmp = $_FILES['foto']['tmp_name'];
+        $nome = $_FILES['foto']['name'];
+
+        // Pega a extensao
+        $extensao = strrchr($nome, '.');
+
+        // Converte a extensao para mimusculo
+        $extensao = strtolower($extensao);
+
+        // Somente imagens, .jpg;.jpeg;.gif;.png
+        // Aqui eu enfilero as extesões permitidas e separo por ';'
+        // Isso server apenas para eu poder pesquisar dentro desta String
+        if(strstr('.jpg;.jpeg;.gif;.png', $extensao)){
+            // Cria um nome único para esta imagem
+            // Evita que duplique as imagens no servidor.
+            $novoNome = md5(microtime()) . $extensao;
+
+            // Concatena a pasta com o nome
+            $destino = 'tmp/' . $novoNome;
+
+            // tenta mover o arquivo para o destino
+            if( @move_uploaded_file( $arquivo_tmp, $destino  )){
+                return $novoNome;
+            }
+            else{
+                var_dump('nao moveu');
+                return false;
+            }
+        }
+        else{
+            var_dump('nao coiso strtr');
+            return false;
+        }
+    }
+    else{
+
+        return false;
     }
 }
 

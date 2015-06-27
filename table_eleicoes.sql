@@ -15,3 +15,9 @@ ALTER TABLE partidos
 
 ALTER TABLE partidos
   DROP COLUMN estado;
+
+ALTER TABLE partidos
+  ADD COLUMN coligacao character varying(255);
+
+  ALTER TABLE candidato
+  ADD COLUMN foto character varying(500);

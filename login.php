@@ -23,7 +23,7 @@ if($_POST['frmPassou'] == "OK"){
             //registra os dados do usuário na sessão
             $_SESSION['_token'] = md5($user->login.md5($user->senha));
             $_SESSION['LASTACTIVITY'] = time();
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = serialize($user);
             //redireciona o usuário para a pagina inicial.
             header('Location: index.php');
             die();

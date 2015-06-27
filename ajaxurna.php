@@ -31,10 +31,9 @@ if(isLogged()){
 
     if($_POST['busca'] == 'candidato'){
         $candidato = new Candidato();
-        if($candidato->Load('numero='.$_POST['valor'] . ' AND id_cargo = ' . $_POST['cargo'])){
-            $return['foto'] = $partido->foto;
-            $return['nome'] = $partido->nome;
-            $return['fantasia'] = $partido->nome_fantasia;
+        if($candidato->Load('numero='.$_POST['valor'] . ' AND id_cargo = ' . $_POST['id_cargo'])){
+            $return['foto'] = $candidato->foto;
+            $return['fantasia'] = $candidato->nome_fantasia;
             echo json_encode($return);
         }
         else{
@@ -43,4 +42,5 @@ if(isLogged()){
 
         exit;
     }
+
 }

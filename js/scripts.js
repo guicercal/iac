@@ -290,7 +290,18 @@ function formataCampo(campo, Mascara, evento) {
 
 
 
+function mascaraNumeroCandidato(campo,padrao){
+    if(campo.value.length <2){
+        campo.value = padrao;
+    }
+    else{
+        if(campo.value.substr(0,3) != padrao){
+            var resto = campo.value.substr(2,5);
+            campo.value = padrao+''+resto;
+        }
+    }
 
+}
 
 
 function mascaraString(){

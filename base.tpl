@@ -44,7 +44,7 @@
     <script type="text/javascript" src="js/jquery.validate.js" ></script>
 </head>
 <body>
-<div class="fixed-header-default">
+<div class="fixed-header-default {hide_aqui}">
     <img src="img/logovota.png" height="50px">
     <h2>Justiça Eleitoral - Eleições 2015</h2>
     <a href="logout.php">
@@ -79,7 +79,6 @@
 <div class="col-md-12">
 <ol class="breadcrumb">
     <li><a href="cadastropartido.php?a=1">Partidos</a></li>
-    <li class="active">Candidatos</li>
     <li><a href="cadastroCandidato.php?a=1&partido={id_partido}">Candidatos do partido: <b>{nome_partido} - {sigla_partido}</b></a></li>
     <li class="active">Cadastrar novo candidato</b></li>
 </ol>
@@ -109,7 +108,7 @@
 
         <strong>Hey!</strong> Seu dados de eleitor serão utilizados.
     </div>
-    <form id="cadg" action="cadastroCandidato.php" method="POST" class="form-horizontal" novalidate onsubmit="return validarFormulario(this);">
+    <form id="cadg" action="cadastroCandidato.php?a=2" enctype="multipart/form-data" method="POST" class="form-horizontal" novalidate onsubmit="return validarFormulario(this);">
         <!-- Text input-->
         <input type="hidden" name="frmPassou" value="OK">
         <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
@@ -148,7 +147,12 @@
 
                     </div>
                 </div>
-
+                <div class="col-md-8">
+                    <label class="control-label" for="foto">Foto</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="foto" name="foto" value="{presidente}" accept="image/gif, image/jpeg, image/png" type="file" required class="form-control">
+                    </div>
+                </div>
 
             </div>
         </fieldset>
@@ -253,7 +257,7 @@
                 <div class="col-md-3">
                     <label class="control-label" for="numeroCandidato">Número do candidato</label>
                     <div>
-                        <input id="numeroCandidato" name="numeroCandidato" type="number" pattern="[0-9]" placeholder="Número do candidato" class="form-control" required>
+                        <input id="numeroCandidato" name="numeroCandidato" type="text" pattern="[0-9]" value="{numero_partido}" onkeyup="mascaraNumeroCandidato(this,{numero_partido});" maxlength="5" placeholder="Número do candidato" class="form-control" required>
 
                     </div>
                 </div>
@@ -509,7 +513,7 @@
         <legend>
             <ol class="breadcrumb">
                 <li><a href="cadastropartido.php?a=1">Partidos</a></li>
-                <li class="active">Cadastrar Novo Partido</li>
+                <li class="active">{nome_acao} Partido</li>
             </ol>
         </legend>
     </fieldset>
@@ -519,8 +523,14 @@
         </button>
         <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
     </div>
+    <div class="alert alert-success cadastro-sucesso-alert {cadastro_sucesso}">
+        <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+            <i class="fa fa-times"></i>
+        </button>
+        <strong>Parabéns!</strong> A operação foi realizada com sucesso.
+    </div>
     <div class="panel-body">
-        <form id="cadpar" action="cadastropartido.php?a=2" method="POST" novalidate onsubmit="return validarFormulario(this);">
+        <form id="cadpar" enctype="multipart/form-data" action="{action}" method="POST" novalidate onsubmit="return validarFormulario(this);">
             <!-- Text input-->
             <input type="hidden" name="frmPassou" value="OK">
 
@@ -528,63 +538,74 @@
                 <div class="col-md-4">
                     <label class="control-label" for="presidente">Presidente</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="presidente" name="presidente" type="text" maxlength="255" required placeholder="Nome do Presidente" class="form-control">
+                        <input id="presidente" name="presidente" value="{presidente}" type="text" maxlength="255" required placeholder="Nome do Presidente" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label class="control-label" for="nome">Nome do partido</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="nome" name="nome" type="text" required placeholder="Nome do partido" class="form-control">
+                        <input id="nome" name="nome" type="text" value="{nome}" required placeholder="Nome do partido" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label class="control-label" for="numero">Número</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="numeroPartido" name="numeroPartido" type="text" placeholder="Número do partido" maxlength="6" required class="form-control">
+                        <input id="numeroPartido" name="numeroPartido" value="{numero}" type="text" placeholder="Número do partido" maxlength="2" required class="form-control">
                     </div>
                 </div>
 
             </div>
+
             <div class="row m-b-10">
                 <div class="col-md-4">
                     <label class="control-label" for="deferimento">Deferimento</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="deferimento" name="deferimento" type="text" placeholder="Deferimento"  required class="form-control">
+                        <input id="deferimento" name="deferimento" value="{deferimento}" type="text" placeholder="Deferimento"  required class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <label class="control-label" for="sigla">Sigla</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="sigla" name="sigla" type="text" placeholder="Sigla" required class="form-control">
+                        <input id="sigla" name="sigla" type="text" placeholder="Sigla" value="{sigla}" required class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label class="control-label" for="coligacao">Coligação</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="coligacao" name="coligacao" type="text" placeholder="Coligação" required class="form-control">
+                        <input id="coligacao" name="coligacao" type="text" value="{coligacao}" placeholder="Coligação" required class="form-control">
                     </div>
                 </div>
+            </div>
+            <div class="row m-b-10">
+                <div class="col-md-12">
+                    <label class="control-label" for="foto">Foto</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="foto" name="foto" value="{presidente}" accept="image/gif, image/jpeg, image/png" type="file" required class="form-control">
+                    </div>
+                </div>
+
+
             </div>
             <div class="row m-b-10">
                 <div class="col-md-4">
                     <label class="control-label" for="cep">CEP</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="cep" name="cep" type="text" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
+                        <input id="cep" name="cep" type="text" value="{cep}" placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
 
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label class="control-label" for="logradouro">Logradouro</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required class="form-control">
+                        <input id="logradouro" name="logradouro" value="{logradouro}" type="text" placeholder="Logradouro" required class="form-control">
 
                     </div>
                 </div>
                 <div class="col-md-2">
                     <label class="control-label" for="numero">Número</label>
                     <div class="controls m-t-10 m-b-10">
-                        <input id="numero" name="numero" type="number" pattern="[0-9]" placeholder="Número" class="form-control" required>
+                        <input id="numero" name="numero_end" type="number" value="{numero_end}" pattern="[0-9]" placeholder="Número" class="form-control" required>
 
                     </div>
                 </div>
@@ -593,14 +614,14 @@
                 <div class="col-md-4">
                     <label class="control-label" for="bairro">Bairro</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="bairro" name="bairro" type="text" placeholder="Bairro" required maxlength="100" required class="form-control">
+                        <input id="bairro" name="bairro" type="text" value="{bairro}" placeholder="Bairro" required maxlength="100" required class="form-control">
 
                     </div>
                 </div>
                 <div class="col-md-6    ">
                     <label class="control-label" for="cidade">Cidade</label>
                     <div class="controls  m-t-10 m-b-10">
-                        <input id="cidade" name="cidade" type="text" placeholder="Cidade" required class="form-control">
+                        <input id="cidade" name="cidade" type="text" value="{cidade}" placeholder="Cidade" required class="form-control">
 
                     </div>
                 </div>
@@ -609,33 +630,33 @@
                     <div class="controls m-t-10 m-b-10">
                         <select name="estado" required id="estado" class="form-control">
                             <option value=""></option>
-                            <option value="AC">AC</option>
-                            <option value="AL">AL</option>
-                            <option value="AM">AM</option>
-                            <option value="AP">AP</option>
-                            <option value="BA">BA</option>
-                            <option value="CE">CE</option>
-                            <option value="DF">DF</option>
-                            <option value="ES">ES</option>
-                            <option value="GO">GO</option>
-                            <option value="MA">MA</option>
-                            <option value="MG">MG</option>
-                            <option value="MS">MS</option>
-                            <option value="MT">MT</option>
-                            <option value="PA">PA</option>
-                            <option value="PB">PB</option>
-                            <option value="PE">PE</option>
-                            <option value="PI">PI</option>
-                            <option value="PR">PR</option>
-                            <option value="RJ">RJ</option>
-                            <option value="RN">RN</option>
-                            <option value="RS">RS</option>
-                            <option value="RO">RO</option>
-                            <option value="RR">RR</option>
-                            <option value="SC">SC</option>
-                            <option value="SE">SE</option>
-                            <option value="SP">SP</option>
-                            <option value="TO">TO</option>
+                            <option value="AC" {AC}>AC</option>
+                            <option value="AL" {AL}>AL</option>
+                            <option value="AM" {AM}>AM</option>
+                            <option value="AP" {AP}>AP</option>
+                            <option value="BA" {BA}>BA</option>
+                            <option value="CE" {CE}>CE</option>
+                            <option value="DF" {DF}>DF</option>
+                            <option value="ES" {ES}>ES</option>
+                            <option value="GO" {GO}>GO</option>
+                            <option value="MA" {MA}>MA</option>
+                            <option value="MG" {MG}>MG</option>
+                            <option value="MS" {MS}>MS</option>
+                            <option value="MT" {MT}>MT</option>
+                            <option value="PA" {PA}>PA</option>
+                            <option value="PB" {PB}>PB</option>
+                            <option value="PE" {PE}>PE</option>
+                            <option value="PI" {PI}>PI</option>
+                            <option value="PR" {PR}>PR</option>
+                            <option value="RJ" {RJ}>RJ</option>
+                            <option value="RN" {RN}>RN</option>
+                            <option value="RS" {RS}>RS</option>
+                            <option value="RO" {RO}>RO</option>
+                            <option value="RR" {RR}>RR</option>
+                            <option value="SC" {SC}>SC</option>
+                            <option value="SE" {SE}>SE</option>
+                            <option value="SP" {SP}>SP</option>
+                            <option value="TO" {TO}>TO</option>
                         </select>
                     </div>
                 </div>
@@ -658,7 +679,7 @@
 </div>
 </div>
 </div>
-<div class="col-md-6 column fixed-footer">
+<div class="col-md-6 column fixed-footer {hide_aqui}">
     <h5> Desenvolvido por: André Silva, Daniel Druszcz, Guilherme Cercal e Vinicius Calegari.</h5>
     <h6>Todos os direitos reservados &copy</h6>
     <img src="img/logo_governo.png" height="50px">
@@ -1092,7 +1113,6 @@
 *=> candidatos_table_head
 <ol class="breadcrumb">
     <li><a href="cadastropartido.php?a=1">Partidos</a></li>
-    <li class="active">Candidatos</li>
     <li class="active">Candidatos do partido: <b>{nome_partido} - {sigla_partido}</b></li>
 </ol>
 <table class="table table-hover table-bordered">
@@ -1103,6 +1123,7 @@
     <th class="text-center">Ações</th>
 
     </thead>
+
 *=> candidatos_table_linha
     <tr>
         <td class="text-center">{nome_fantasia}</td>
@@ -1129,7 +1150,7 @@
 <div class="box-tools m-b-15">
     <div class="row">
         <div class="col-md-4">
-            <a href="cadastroCandidato.php?a=2" title="Novo Partido">
+            <a href="cadastroCandidato.php?a=2&id_partido={id_partido}" title="Novo Candidato">
                 <div class="btn btn-info">
                     <span class="glyphicon glyphicon-plus-sign"> Novo</span>
                 </div>
@@ -1167,18 +1188,18 @@
                         <div class="col-md-6">
 
                             <div class="row ">
-                            <div class="col-md-8"></div>
+                            <div class="col-md-8" id="cargo">Vereador</div>
                             <div class="col-md-4 row-partido">
-                                <img src="img\brhue.jpg" class="img-circle"  height="100%" width="100%" >
+                                <img src="img/sem_foto.jpg" id="foto-partido" class="img-circle"  height="100%" width="100%" >
                             </div>
                             </div>
                             <div class="row-candidato">
-                           <img src="img\brhue.jpg" height="100%" width="100%" class="img-circle">
+                           <img src="img/sem_foto.jpg" id="foto-candidato" height="100%" width="100%" class="img-circle">
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <label type="text" class="form-control" placeholder="Candidato" aria-describedby="sizing-addon">
+                                    <input type="text" class="form-control" disabled id="nomecandidato" placeholder="Candidato" aria-describedby="sizing-addon">
                                 </div>
                             </div>
 
@@ -1261,7 +1282,7 @@
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-default" name="btnBranco" value="branco" >BRANCO</button>
+                                    <button type="button" class="btn btn-default" name="btnBranco" onclick="branco();" value="branco" >BRANCO</button>
                                 </div>
 
                                 <div class="col-md-3">
@@ -1269,7 +1290,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-success btn-lg active" >CONFIRMA</button>
+                                    <button type="button" class="btn btn-success btn-lg active" onclick="confirma();" >CONFIRMA</button>
                                 </div>
                                 <div class="col-md-1"></div>
 
@@ -1286,19 +1307,274 @@
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-md-3">
-                       Nome do candidato:
+                       Nome do candidato: <span class="nome-candidato"></span>
                     </div>
                     <div class="col-md-3">
-                        Número:
+                        Número: <span id="numero-candidato"></span>
                     </div>
                     <div class="col-md-3">
-                        Partido:
+                        Partido: <span id="nome-partido"></span>
                     </div>
                     <div class="col-md-3">
-                        Coligação:
+                        Coligação: <span id="coligacao-partido"></span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<form name="formVotos" id="formVotos" action="computarVoto.php" method="post">
+
+</form>
+
+*=> form_editar_candidato
+
+<div class="row clearfix" >
+<div class="col-md-12">
+<ol class="breadcrumb">
+    <li><a href="cadastropartido.php?a=1">Partidos</a></li>
+    <li><a href="cadastroCandidato.php?a=1&partido={id_partido}">Candidatos do partido: <b>{nome_partido} - {sigla_partido}</b></a></li>
+    <li class="active">Editar cadastro de candidato</b></li>
+</ol>
+<div class="alert alert-block alert-danger form-errors-alert">
+    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+        <i class="fa fa-times"></i>
+    </button>
+    <strong>Ops!</strong> Os campos em vermelho são obrigatórios ou possuem erros!
+</div>
+<div class="alert alert-block alert-danger cpf-indisp-alert">
+    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+        <i class="fa fa-times"></i>
+    </button>
+    <strong>Ops!</strong> Parece que este CPF já está cadastrado, por favor verifique!
+</div>
+<div class="alert alert-block alert-danger login-indisp-alert">
+    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+        <i class="fa fa-times"></i>
+    </button>
+    <strong>Ops!</strong> Parece que este CPF de candidato está indisponível, por favor escolha outro nome ou realize o cadastro do candidato!
+</div>
+<div class="alert alert-block alert-success login-indisp-alert {cadastro_sucesso}">
+    <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+        <i class="fa fa-times"></i>
+    </button>
+    <strong>Parabéns!</strong> Operação realizada com sucesso
+</div>
+<div class="panel-body">
+    <div id="alertaExisteEleitor" class="alert alert-info cadastro-sucesso-alert">
+        <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <strong>Hey!</strong> Seu dados de eleitor serão utilizados.
+    </div>
+    <form id="cadg" enctype="multipart/form-data" action="cadastroCandidato.php?a=3" method="POST" class="form-horizontal" novalidate onsubmit="return validarFormulario(this);">
+        <!-- Text input-->
+        <input type="hidden" name="frmPassou" value="OK">
+        <input type="hidden" name="cpfDisponivel" id="cpfDisponivel" value="true">
+        <input type="hidden" name="id_candidato" value="{id_candidato}">
+        <fieldset>
+            <legend class="text">
+                <h5>
+                    Dados pessoais
+                </h5>
+            </legend>
+            <div class="row m-b-10">
+                <div class="col-md-4">
+                    <label class="control-label" for="textinput">CPF</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="cpf" name="cpf" type="text" value="{cpf}" maxlength="14" disabled onKeyPress ="mascaraCPF(cadg.cpf);" formato="cpf" required placeholder="CPF" class="form-control" onkeyup="verificaCandidato(this);">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="nome">Nome</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="nome" name="nome" type="text" value="{nome}" disabled required placeholder="Nome" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label" for="Rg">RG</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="rg" name="rg" type="text" value="{rg}" maxlength="10" placeholder="RG" disabled required class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row m-b-10">
+                <div class="col-md-4">
+                    <label class="control-label" for="titulo">Título</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="titulo" name="titulo" type="text" value="{titulo}" disabled placeholder="Título" required maxlength="15" class="form-control">
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <label class="control-label" for="foto">Foto</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="foto" name="foto" value="{presidente}" accept="image/gif, image/jpeg, image/png" type="file" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend class="text">
+                <h5>
+                    Dados do endereço
+                </h5>
+            </legend>
+
+            <div class="row m-b-10">
+                <div class="col-md-4">
+                    <label class="control-label" for="cep">CEP</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="cep" name="cep" type="text" value="{cep}" disabled placeholder="CEP" required maxlength="10" onkeypress="mascaraCep(this);" onkeyup="buscaEndereco(this);" class="form-control">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label" for="logradouro">Logradouro</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="logradouro" name="logradouro" disabled value="{logradouro}" type="text" placeholder="Logradouro" required class="form-control">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label" for="numero">Número</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <input id="numero" name="numero" type="number" disabled pattern="[0-9]" value="{numero_end}" placeholder="Número" class="form-control" required>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row m-b-10">
+                <div class="col-md-4">
+                    <label class="control-label" for="bairro">Bairro</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="bairro" name="bairro" type="text" disabled placeholder="Bairro" value="{bairro}" required maxlength="100" required class="form-control">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label" for="cidade">Cidade</label>
+                    <div class="controls  m-t-10 m-b-10">
+                        <input id="cidade" name="cidade" type="text" disabled placeholder="Cidade" value="{cidade}" required class="form-control">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label" for="estado">Estado</label>
+                    <div class="controls m-t-10 m-b-10">
+                        <select name="estado" required id="estado" disabled class="form-control">
+                            <option value="">Estado</option>
+                            <option value="AC" {AC}>AC</option>
+                            <option value="AL" {AL}>AL</option>
+                            <option value="AM" {AM}>AM</option>
+                            <option value="AP" {AP}>AP</option>
+                            <option value="BA" {BA}>BA</option>
+                            <option value="CE" {CE}>CE</option>
+                            <option value="DF" {DF}>DF</option>
+                            <option value="ES" {ES}>ES</option>
+                            <option value="GO" {GO}>GO</option>
+                            <option value="MA" {MA}>MA</option>
+                            <option value="MG" {MG}>MG</option>
+                            <option value="MS" {MS}>MS</option>
+                            <option value="MT" {MT}>MT</option>
+                            <option value="PA" {PA}>PA</option>
+                            <option value="PB" {PB}>PB</option>
+                            <option value="PE" {PE}>PE</option>
+                            <option value="PI" {PI}>PI</option>
+                            <option value="PR" {PR}>PR</option>
+                            <option value="RJ" {RJ}>RJ</option>
+                            <option value="RN" {RN}>RN</option>
+                            <option value="RS" {RS}>RS</option>
+                            <option value="RO" {RO}>RO</option>
+                            <option value="RR" {RR}>RR</option>
+                            <option value="SC" {SC}>SC</option>
+                            <option value="SE" {SE}>SE</option>
+                            <option value="SP" {SP}>SP</option>
+                            <option value="TO" {TO}>TO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend class="text">
+                <h5>
+                    Dados do candidato
+                </h5>
+            </legend>
+            <div class="row m-b-10">
+                <div class="col-md-6">
+                    <label class="control-label" for="nomeFantasia">Nome Fantasia</label>
+                    <input id="nomeFantasia" name="nomeFantasia" type="text" value="{nomeFantasia}" placeholder="Nome Fantasia" required class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label" for="numeroCandidato">Número do candidato</label>
+                    <div>
+                        <input id="numeroCandidato" name="numeroCandidato" type="text" value="{numero}" onkeyup="mascaraNumeroCandidato(this,{numero_partido});" maxlength="5" placeholder="Número do candidato" class="form-control" required>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label" for="cargo">Cargo</label>
+                    <div class="controls">
+                        <select  name="cargo" required id="cargo" class="form-control">
+                            <option value=""></option>
+                            <option value="1" {cargo_1}>Vereador</option>
+                            <option value="2" {cargo_2}>Deputado Estadual</option>
+                            <option value="3" {cargo_3}>Prefeito</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br>
+        <div class="row m-b-10" align="center">
+            <div class="col-md-12">
+                <button id="btcadastra" name="btcadastra" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
+                <a href="login.php"><div id="btcancela" name="btcancela" class="btn btn-danger">Cancelar</div></a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</div>
+</div>
+
+*=> voce_ja_votou
+
+<div class="row clearfix">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="alert alert-block alert-success">
+            <button data-dismiss="alert" class="close close-sm" type="button" onclick="$(this).parent().fadeOut(400);">
+                <i class="fa fa-times"></i>
+            </button>
+            <strong>Obrigado!</strong> O seu voto foi computado com sucesso! aguarde o resultado das eleições!
+        </div>
+    </div>
+</div>
+
+*=> comprovante_votacao
+
+<div class="row clearfix">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <section class="panel panel-default">
+            <div class="panel-heading" style="text-align: center">Comprovante de Votação</div>
+            <div class="panel-body" style="text-align: justify">
+                O eleitor {nome}, no exercício de seu direito de cidadão,
+                participou das eleições 2015 através da urna online
+                <br><br>
+                chave de validação: <br>{chave}
+            </div>
+        </section>
     </div>
 </div>
